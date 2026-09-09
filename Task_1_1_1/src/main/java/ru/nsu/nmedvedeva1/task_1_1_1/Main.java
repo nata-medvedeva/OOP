@@ -1,17 +1,34 @@
 package ru.nsu.nmedvedeva1.task_1_1_1;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.println("Hello and welcome!");
+/** Класс main считывает массив array, осуществляет вызов класса
+* сортировки и выводит полученный отсортированный массив в одну строку.
+*/
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+public class Main {
+
+    /** Принимает числа из командной строки, сортирует их и выводит
+    * в отсортированном порядке.
+    * @param args это аргументы командной строки (числа для сортировки)
+    */
+
+    public static void main(String[] args) {
+        if(args.length == 0){
+            return;
         }
+
+        int[] array = new int[args.length];
+        for (int i = 0; i< array.length; i++) {
+            array[i]=Integer.parseInt(args[i]);
+        }
+        Sort.heapsort(array);
+
+        for (int i = 0; i< array.length; i++) {
+            System.out.print(array[i]);
+
+            if (i < array.length - 1) {
+                System.out.print(" ");
+            }
+        }
+        System.out.println();
     }
 }
