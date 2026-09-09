@@ -76,9 +76,9 @@ class SortTest {
 
     @Test
     void sort_of_3() {
-        int[] array = {1,3,2};
+        int[] array = {1, 3, 2};
         Sort.heapsort(array);
-        assertArrayEquals(new int[]{1,2,3}, array);
+        assertArrayEquals(new int[]{1, 2, 3}, array);
     }
 
     @Test
@@ -90,16 +90,16 @@ class SortTest {
 
     @Test
     void sort_of_sorted() {
-        int[] array = {1,2,3,4,5};
+        int[] array = {1, 2, 3, 4, 5};
         Sort.heapsort(array);
-        assertArrayEquals(new int[]{1,2,3,4,5}, array);
+        assertArrayEquals(new int[]{1, 2, 3, 4, 5}, array);
     }
 
     @Test
     void sort_with_duplicates() {
-        int[] array = {1,1,1,1,1,1,1,2,3,4,5,6,6,7,8,8,8,8,9,9,2,43};
+        int[] array = {1, 1, 1, 1, 1, 1, 1, 2, 3, 4, 5, 6, 6, 7, 8, 8, 8, 8, 9, 9, 2, 43};
         Sort.heapsort(array);
-        assertArrayEquals(new int[]{1,1,1,1,1,1,1,2,2,3,4,5,6,6,7,8,8,8,8,9,9,43}, array);
+        assertArrayEquals(new int[]{1, 1, 1, 1, 1, 1, 1, 2, 2, 3, 4, 5, 6, 6, 7, 8, 8, 8, 8, 9, 9, 43}, array);
     }
 
     @Test
