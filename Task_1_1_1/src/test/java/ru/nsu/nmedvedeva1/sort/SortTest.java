@@ -1,18 +1,18 @@
-package ru.nsu.nmedvedeva1.task_1_1_1;
+package ru.nsu.nmedvedeva1.sort;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.io.ByteArrayOutputStream;
-
-import java.io.PrintStream;
-
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SortTest {
 
-    //как бы перехватываем то, что программа собирается вывести в консоль
-    //и с помощью этого можем протестировать мейн
+    /** Как бы перехватываем то, что программа собирается вывести в консоль и с помощью этого можем протестировать мейн.
+     */
+
     private String runMain(String... args) {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
@@ -49,7 +49,7 @@ class SortTest {
     void sort_main_duplicates() {
         String result = runMain("2", "2", "2", "81", "2", "3", "4");
 
-        assertEquals("2 2 2 2 3 4 81"+ System.lineSeparator(), result);
+        assertEquals("2 2 2 2 3 4 81" + System.lineSeparator(), result);
     }
 
     @Test
@@ -64,11 +64,11 @@ class SortTest {
     void sort_main_sorted() {
         String result = runMain("1", "2", "3", "4", "5");
 
-        assertEquals("1 2 3 4 5"+ System.lineSeparator(), result);
+        assertEquals("1 2 3 4 5" + System.lineSeparator(), result);
     }
 
     @Test
-    void empty_arr() {
+    void sort_empty_arr() {
         int[] array = {};
         Sort.heapsort(array);
         assertArrayEquals(new int[]{}, array);
@@ -104,8 +104,8 @@ class SortTest {
 
     @Test
     void sort_usual() {
-        int[] array = {11,245,2,4,6,78,9,3434,67899,1100000000};
+        int[] array = {11, 245, 2, 4, 6, 78, 9, 3434, 67899, 1100000000};
         Sort.heapsort(array);
-        assertArrayEquals(new int[]{2,4,6,9,11,78,245,3434,67899,1100000000}, array);
+        assertArrayEquals(new int[]{2, 4, 6, 9, 11, 78, 245, 3434, 67899, 1100000000}, array);
     }
 }
