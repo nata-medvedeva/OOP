@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
 import org.junit.jupiter.api.Test;
 
 class SortTest {
@@ -99,12 +98,9 @@ class SortTest {
 
     @Test
     void sort_with_duplicates() {
-        int[] array = {
-                1, 1, 1, 1, 1, 1, 1, 2, 3, 4, 5,
-                6, 6, 7, 8, 8, 8, 8, 9, 9, 2, 43
-        };
+        int[] array = {1, 1, 1, 1, 2, 3, 4, 5, 6, 6, 7, 8, 8, 8, 9, 2, 43};
         Sort.heapsort(array);
-        assertArrayEquals(new int[]{1, 1, 1, 1, 1, 1, 1, 2, 2, 3, 4, 5, 6, 6, 7, 8, 8, 8, 8, 9, 9, 43}, array);
+        assertArrayEquals(new int[]{1, 1, 1, 1, 2, 2, 3, 4, 5, 6, 6, 7, 8, 8, 8, 9, 43}, array);
     }
 
     @Test
