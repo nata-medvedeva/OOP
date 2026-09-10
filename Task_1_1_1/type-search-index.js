@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.nmedvedeva1.task_1_1_1","l":"Main"},{"p":"ru.nsu.shadrina","l":"Sample"},{"p":"ru.nsu.nmedvedeva1.task_1_1_1","l":"Sort"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.nmedvedeva1.sort","l":"Main"},{"p":"ru.nsu.shadrina","l":"Sample"},{"p":"ru.nsu.nmedvedeva1.sort","l":"Sort"}];updateSearchResults();
