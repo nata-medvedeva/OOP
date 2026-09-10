@@ -1,16 +1,18 @@
 package ru.nsu.nmedvedeva1.sort;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 class SortTest {
 
-    /** Как бы перехватываем то, что программа собирается вывести в консоль и с помощью этого можем протестировать мейн.
+    /**
+     * Как бы перехватываем то, что программа собирается вывести в консоль
+     * и с помощью этого можем протестировать мейн.
      */
 
     private String runMain(String... args) {
@@ -97,7 +99,10 @@ class SortTest {
 
     @Test
     void sort_with_duplicates() {
-        int[] array = {1, 1, 1, 1, 1, 1, 1, 2, 3, 4, 5, 6, 6, 7, 8, 8, 8, 8, 9, 9, 2, 43};
+        int[] array = {
+                1, 1, 1, 1, 1, 1, 1, 2, 3, 4, 5,
+                6, 6, 7, 8, 8, 8, 8, 9, 9, 2, 43
+        };
         Sort.heapsort(array);
         assertArrayEquals(new int[]{1, 1, 1, 1, 1, 1, 1, 2, 2, 3, 4, 5, 6, 6, 7, 8, 8, 8, 8, 9, 9, 43}, array);
     }
