@@ -4,7 +4,7 @@ public abstract class Participant {
     protected final Hand hand = new Hand();
     protected String name;
 
-    public Participant (String name) {
+    public Participant(String name) {
         this.name = name;
     }
 

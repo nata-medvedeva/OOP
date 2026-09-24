@@ -110,10 +110,18 @@ public class Game {
     }
 
     public static String winnerForTests(int gamerScore, int dealerScore, boolean gamerBust, boolean dealerBust) {
-        if (gamerBust) return "DEALER";
-        if (dealerBust) return "GAMER";
-        if (gamerScore > dealerScore) return "GAMER";
-        if (dealerScore > gamerScore) return "DEALER";
+        if (gamerBust) {
+            return "DEALER";
+        }
+        if (dealerBust) {
+            return "GAMER";
+        }
+        if (gamerScore > dealerScore) {
+            return "GAMER";
+        }
+        if (dealerScore > gamerScore) {
+            return "DEALER";
+        }
         return "DRAW";
     }
 }

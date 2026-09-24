@@ -38,34 +38,47 @@ public class Prints {
     }
 
     public static boolean printCommonInfo() {
-        System.out.println("Введите “1”, чтобы взять карту, и “0”, чтобы остановиться...");
+        System.out.println("Введите “1”, чтобы взять карту, и “0”, " +
+                "чтобы остановиться...");
         System.out.println();
         while (true) {
             String input = scanner.nextLine();
-            if (input.equals("1")) return true;
-            if (input.equals("0")) return false;
+            if (input.equals("1")) {
+                return true;
+            }
+            if (input.equals("0")) {
+                return false;
+            }
             System.out.println("Некорректный ввод");
         }
     }
 
     public static boolean printPlayAgain() {
-        System.out.println("Хотите сыграть еще раз? Введите “1”, чтобы продолжить, и “0”, чтобы остановиться...");
+        System.out.println("Хотите сыграть еще раз? Введите “1”, " +
+                "чтобы продолжить, и “0”, чтобы остановиться...");
         System.out.println();
         while (true) {
             String input = scanner.nextLine();
-            if (input.equals("1")) return true;
-            if (input.equals("0")) return false;
+            if (input.equals("1")) {
+                return true;
+            }
+            if (input.equals("0")) {
+                return false;
+            }
             System.out.println("Некорректный ввод");
         }
     }
 
     public static void printRoundResult(int gamerRoundScore, int dealerRoundScore, int totalGamerScore, int totalDealerScore) {
         if (gamerRoundScore > dealerRoundScore) {
-            System.out.println("Вы выиграли раунд! Общий счет " + totalGamerScore + ":" + totalDealerScore + " в вашу пользу.");
+            System.out.println("Вы выиграли раунд! Общий счет " +
+                    totalGamerScore + ":" + totalDealerScore + " в вашу пользу.");
         } else if (dealerRoundScore > gamerRoundScore) {
-            System.out.println("Вы проиграли раунд! Общий счет " + totalGamerScore + ":" + totalDealerScore + " в пользу Дилера.");
+            System.out.println("Вы проиграли раунд! Общий счет " +
+                    totalGamerScore + ":" + totalDealerScore + " в пользу Дилера.");
         } else {
-            System.out.println("Ничья! Общий счет " + totalGamerScore + ":" + totalDealerScore + ".");
+            System.out.println("Ничья! Общий счет " + totalGamerScore +
+                    ":" + totalDealerScore + ".");
         }
     }
 

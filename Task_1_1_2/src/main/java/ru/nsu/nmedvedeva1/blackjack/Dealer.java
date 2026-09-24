@@ -38,7 +38,8 @@ public class Dealer extends Participant {
 
     public String describeOneCard() {
         Card openCard = hand.getCards().get(0);
-        return "[" + openCard.toStringWithValue(openCard.getBaseValue()) + ", <закрытая карта>]";
+        return "[" + openCard.toStringWithValue(openCard.getBaseValue())
+                + ", <закрытая карта>]";
     }
 
     public Card getHiddenCard() {

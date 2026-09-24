@@ -19,7 +19,7 @@ public class Hand {
         int amountOfAces = 0;
         for (Card card : cards) {
             sum += card.getBaseValue();
-            if(card.getRank() == Rank.Ace) {
+            if (card.getRank() == Rank.Ace) {
                 amountOfAces++;
             }
         }
@@ -60,7 +60,6 @@ public class Hand {
 
             result += c.toStringWithValue(displayValue);
 
-            // Добавляем запятую и пробел, если это не последняя карта в списке
             if (i < cards.size() - 1) {
                 result += ", ";
             }
