@@ -76,6 +76,9 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Hand</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Класс руки для игрока либо дилера, тут описываются такие методы как
+ добавление карты, получение карты или общего счета, описание карт,
+ находящихся в руке, проверки на блэкджек и переполнения.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -106,18 +109,18 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addCard(ru.nsu.nmedvedeva1.blackjack.Card)" class="member-name-link">addCard</a><wbr>(ru.nsu.nmedvedeva1.blackjack.Card&nbsp;card)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Метод для добавления одной определенной карты к массиву карт</div>
+<div class="block">Метод для добавления одной определенной карты к массиву карт.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#describe()" class="member-name-link">describe</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Метод для описания карт из массива кардс,
- выводим карты через запятую</div>
+<div class="block">Метод для описания карт из списка кардс,
+ выводим карты через запятую.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;ru.nsu.nmedvedeva1.blackjack.Card&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCards()" class="member-name-link">getCards</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Метод, где возвращаем все карты, которые накопили</div>
+<div class="block">Метод, где возвращаем все карты, которые накопили.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getScore()" class="member-name-link">getScore</a>()</code></div>
@@ -125,17 +128,17 @@ loadScripts(document, 'script');</script>
 <div class="block">Метод для подсчета очков,
  сразу обрабатываем тузы правильно,
  при привышении 21 и когда у нас есть хотя бы 1 туз,
- меняем значение туза с 11 на 1</div>
+ меняем значение туза с 11 на 1.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isBlackjack()" class="member-name-link">isBlackjack</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Метод для определения, блэкджек сейчас в картах или нет</div>
+<div class="block">Метод для определения, блэкджек сейчас в картах или нет.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isBust()" class="member-name-link">isBust</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Метод для определения перебора</div>
+<div class="block">Метод для определения перебора.</div>
 </div>
 </div>
 </div>
@@ -172,7 +175,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="addCard(ru.nsu.nmedvedeva1.blackjack.Card)">
 <h3>addCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addCard</span><wbr><span class="parameters">(ru.nsu.nmedvedeva1.blackjack.Card&nbsp;card)</span></div>
-<div class="block">Метод для добавления одной определенной карты к массиву карт</div>
+<div class="block">Метод для добавления одной определенной карты к массиву карт.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>card</code> - карта</dd>
@@ -183,7 +186,11 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getCards()">
 <h3>getCards</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;ru.nsu.nmedvedeva1.blackjack.Card&gt;</span>&nbsp;<span class="element-name">getCards</span>()</div>
-<div class="block">Метод, где возвращаем все карты, которые накопили</div>
+<div class="block">Метод, где возвращаем все карты, которые накопили.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>список всех карт, с которыми можем играть</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -193,24 +200,32 @@ loadScripts(document, 'script');</script>
 <div class="block">Метод для подсчета очков,
  сразу обрабатываем тузы правильно,
  при привышении 21 и когда у нас есть хотя бы 1 туз,
- меняем значение туза с 11 на 1</div>
+ меняем значение туза с 11 на 1.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>счет</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="isBust()">
 <h3>isBust</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isBust</span>()</div>
-<div class="block">Метод для определения перебора</div>
+<div class="block">Метод для определения перебора.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>правда, если перебор (очков больше 21), иначе ложь</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="isBlackjack()">
 <h3>isBlackjack</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isBlackjack</span>()</div>
-<div class="block">Метод для определения, блэкджек сейчас в картах или нет</div>
+<div class="block">Метод для определения, блэкджек сейчас в картах или нет.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>правда или ложь</dd>
+<dd>правда или ложь, что есть блэкджек</dd>
 </dl>
 </section>
 </li>
@@ -218,8 +233,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="describe()">
 <h3>describe</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">describe</span>()</div>
-<div class="block">Метод для описания карт из массива кардс,
- выводим карты через запятую</div>
+<div class="block">Метод для описания карт из списка кардс,
+ выводим карты через запятую.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>result полученная строка</dd>

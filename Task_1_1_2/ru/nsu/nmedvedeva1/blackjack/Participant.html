@@ -80,6 +80,9 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">Participant</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Абстрактный класс учатник, где описываются получение карты,
+ присвоение имени, получение руки и сброс руки.
+ Может быть использован игроком, либо дилером.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -111,7 +114,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String)" class="member-name-link">Participant</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Метод, где мы можем задать имя игроку или дилеру</div>
+<div class="block">Метод, где мы можем задать имя игроку или дилеру.</div>
 </div>
 </div>
 </section>
@@ -130,22 +133,22 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Hand.html" title="class in ru.nsu.nmedvedeva1.blackjack">Hand</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getHand()" class="member-name-link">getHand</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Метод, когда возвращаем (создаем) руку</div>
+<div class="block">Метод, когда возвращаем (создаем) руку.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getName()" class="member-name-link">getName</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Метод, когда возварщаем имя участника</div>
+<div class="block">Метод, когда возварщаем имя участника.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#receiveCard(ru.nsu.nmedvedeva1.blackjack.Card)" class="member-name-link">receiveCard</a><wbr>(ru.nsu.nmedvedeva1.blackjack.Card&nbsp;card)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Метод, для получения карты, добавляем эту карту в руку/набор</div>
+<div class="block">Метод, для получения карты, добавляем эту карту в руку/набор.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resetHand()" class="member-name-link">resetHand</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Метод, где сбрасываем, отчищаем руку</div>
+<div class="block">Метод, где сбрасываем, отчищаем руку.</div>
 </div>
 </div>
 </div>
@@ -188,7 +191,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(java.lang.String)">
 <h3>Participant</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Participant</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
-<div class="block">Метод, где мы можем задать имя игроку или дилеру</div>
+<div class="block">Метод, где мы можем задать имя игроку или дилеру.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>name</code> - то имя, которое мы задаем</dd>
@@ -207,7 +210,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="receiveCard(ru.nsu.nmedvedeva1.blackjack.Card)">
 <h3>receiveCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">receiveCard</span><wbr><span class="parameters">(ru.nsu.nmedvedeva1.blackjack.Card&nbsp;card)</span></div>
-<div class="block">Метод, для получения карты, добавляем эту карту в руку/набор</div>
+<div class="block">Метод, для получения карты, добавляем эту карту в руку/набор.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>card</code> - карта, которую добавляем</dd>
@@ -218,7 +221,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getHand()">
 <h3>getHand</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Hand.html" title="class in ru.nsu.nmedvedeva1.blackjack">Hand</a></span>&nbsp;<span class="element-name">getHand</span>()</div>
-<div class="block">Метод, когда возвращаем (создаем) руку</div>
+<div class="block">Метод, когда возвращаем (создаем) руку.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>hand та рука, которую создаем</dd>
@@ -229,7 +232,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getName()">
 <h3>getName</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getName</span>()</div>
-<div class="block">Метод, когда возварщаем имя участника</div>
+<div class="block">Метод, когда возварщаем имя участника.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>name имя</dd>
@@ -240,7 +243,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="resetHand()">
 <h3>resetHand</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">resetHand</span>()</div>
-<div class="block">Метод, где сбрасываем, отчищаем руку</div>
+<div class="block">Метод, где сбрасываем, отчищаем руку.</div>
 </section>
 </li>
 </ul>

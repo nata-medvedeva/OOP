@@ -78,6 +78,11 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Dealer</span>
 <span class="extends-implements">extends <a href="Participant.html" title="class in ru.nsu.nmedvedeva1.blackjack">Participant</a></span></div>
+<div class="block">Класс, описывающий основные методы дилера (наследует поведение участника),
+ такие как получение карты,
+ обнажение скрытой карты, сброс руки, описание карт,
+ когда одна закрыта, получение скрытой карты и логика,
+ что дилер берет карты, пока у него сумма меньше 17.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -100,7 +105,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">Dealer</a>()</code></div>
 <div class="col-last even-row-color">
-<div class="block">Метод в котором создаем дилера с именем Дилер</div>
+<div class="block">Метод в котором создаем дилера с именем Дилер.</div>
 </div>
 </div>
 </section>
@@ -120,12 +125,12 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#describeOneCard()" class="member-name-link">describeOneCard</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Метод, когда описываем одну карту у дилера,
- закрытую не трогаем</div>
+ закрытую не трогаем.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>ru.nsu.nmedvedeva1.blackjack.Card</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getHiddenCard()" class="member-name-link">getHiddenCard</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Метод, для получения скрытой карты</div>
+<div class="block">Метод, для получения скрытой карты.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#receiveCard(ru.nsu.nmedvedeva1.blackjack.Card)" class="member-name-link">receiveCard</a><wbr>(ru.nsu.nmedvedeva1.blackjack.Card&nbsp;card)</code></div>
@@ -133,24 +138,24 @@ loadScripts(document, 'script');</script>
 <div class="block">Метод, для получения карты,
  если карт еще не было то добавляем дилеру,
  если карты хиден не было то добавляем нашу карту как скрытую
- иначе просто добавляем карту к дилеру</div>
+ иначе просто добавляем карту к дилеру.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resetHand()" class="member-name-link">resetHand</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Метод, когда сбрасываем руку у дилера
- и сбрасываем скрытую карту</div>
+ и сбрасываем скрытую карту.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#revealHiddenCard()" class="member-name-link">revealHiddenCard</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Метод, когда добавляем скрытую карту в руку</div>
+<div class="block">Метод, когда добавляем скрытую карту в руку.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toDrawCard()" class="member-name-link">toDrawCard</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Метод, который показывает,
- что дилер будет брать карты пока у него меньше 17 счет</div>
+ что дилер будет брать карты пока у него меньше 17 счет.</div>
 </div>
 </div>
 </div>
@@ -176,7 +181,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;()">
 <h3>Dealer</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Dealer</span>()</div>
-<div class="block">Метод в котором создаем дилера с именем Дилер</div>
+<div class="block">Метод в котором создаем дилера с именем Дилер.</div>
 </section>
 </li>
 </ul>
@@ -194,7 +199,7 @@ loadScripts(document, 'script');</script>
 <div class="block">Метод, для получения карты,
  если карт еще не было то добавляем дилеру,
  если карты хиден не было то добавляем нашу карту как скрытую
- иначе просто добавляем карту к дилеру</div>
+ иначе просто добавляем карту к дилеру.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="Participant.html#receiveCard(ru.nsu.nmedvedeva1.blackjack.Card)">receiveCard</a></code>&nbsp;in class&nbsp;<code><a href="Participant.html" title="class in ru.nsu.nmedvedeva1.blackjack">Participant</a></code></dd>
@@ -207,7 +212,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="revealHiddenCard()">
 <h3>revealHiddenCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">revealHiddenCard</span>()</div>
-<div class="block">Метод, когда добавляем скрытую карту в руку</div>
+<div class="block">Метод, когда добавляем скрытую карту в руку.</div>
 </section>
 </li>
 <li>
@@ -215,7 +220,7 @@ loadScripts(document, 'script');</script>
 <h3>toDrawCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">toDrawCard</span>()</div>
 <div class="block">Метод, который показывает,
- что дилер будет брать карты пока у него меньше 17 счет</div>
+ что дилер будет брать карты пока у него меньше 17 счет.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>правда или ложь</dd>
@@ -227,7 +232,7 @@ loadScripts(document, 'script');</script>
 <h3>resetHand</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">resetHand</span>()</div>
 <div class="block">Метод, когда сбрасываем руку у дилера
- и сбрасываем скрытую карту</div>
+ и сбрасываем скрытую карту.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="Participant.html#resetHand()">resetHand</a></code>&nbsp;in class&nbsp;<code><a href="Participant.html" title="class in ru.nsu.nmedvedeva1.blackjack">Participant</a></code></dd>
@@ -239,14 +244,22 @@ loadScripts(document, 'script');</script>
 <h3>describeOneCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">describeOneCard</span>()</div>
 <div class="block">Метод, когда описываем одну карту у дилера,
- закрытую не трогаем</div>
+ закрытую не трогаем.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>[масть и ранг карты, ее стоимость и закрытая карта]</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getHiddenCard()">
 <h3>getHiddenCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">ru.nsu.nmedvedeva1.blackjack.Card</span>&nbsp;<span class="element-name">getHiddenCard</span>()</div>
-<div class="block">Метод, для получения скрытой карты</div>
+<div class="block">Метод, для получения скрытой карты.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>скрытой карты</dd>
+</dl>
 </section>
 </li>
 </ul>
