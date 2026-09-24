@@ -7,7 +7,12 @@ import java.util.List;
 public class Deck {
     private final List<Card> cards = new ArrayList<>();
 
-    
+    /**
+     * Метод где мы заполняем нашу колоду всеми возможными картами из
+     * некоторого количество колод
+     *
+     * @param emountOfDecks количество колод
+     * */
     public Deck(int emountOfDecks) {
         List<Card> generated = new ArrayList<>();
 
@@ -21,7 +26,10 @@ public class Deck {
         Collections.shuffle(generated);
         cards.addAll(generated);
     }
-    
+
+    /**
+     * Метод, где вытягиваем карту
+     * */
     public Card drawCard() {
         if (cards.isEmpty()) {
             System.err.println("Колода пуста");
@@ -30,6 +38,9 @@ public class Deck {
         return cards.remove(cards.size() - 1);
     } 
 
+    /**
+     * Метод, который выводит количество карт, сколько осталось в колоде
+     * */
     public int remaining() {
         return cards.size();
     }

@@ -6,14 +6,28 @@ import java.util.List;
 public class Hand {
     private final List<Card> cards = new ArrayList<>();
 
+    /**
+     * Метод для добавления одной определенной карты к массиву карт
+     *
+     * @param card карта
+     * */
     public void addCard(Card card) {
         cards.add(card);
     }
 
+    /**
+     * Метод, где возвращаем все карты, которые накопили
+     * */
     public List<Card> getCards() {
         return cards;
     }
 
+    /**
+     * Метод для подсчета очков,
+     * сразу обрабатываем тузы правильно,
+     * при привышении 21 и когда у нас есть хотя бы 1 туз,
+     * меняем значение туза с 11 на 1
+     * */
     public int getScore() {
         int sum = 0;
         int amountOfAces = 0;
@@ -30,14 +44,28 @@ public class Hand {
         return sum;
     }
 
+    /**
+     * Метод для определения перебора
+     * */
     public boolean isBust() {
         return getScore() > 21;
     }
 
+    /**
+     * Метод для определения, блэкджек сейчас в картах или нет
+     *
+     * @return правда или ложь
+     * */
     public boolean isBlackjack() {
         return cards.size() == 2 && getScore() == 21;
     }
 
+    /**
+     * Метод для описания карт из массива кардс,
+     * выводим карты через запятую
+     *
+     * @return result полученная строка
+     * */
     public String describe() {
         int finalScore = getScore();
         int curSum = 0;

@@ -2,6 +2,7 @@ package ru.nsu.nmedvedeva1.blackjack;
 
 import java.util.Scanner;
 
+
 public class Prints {
     private static final Scanner scanner = new Scanner(System.in);
 
