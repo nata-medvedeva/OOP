@@ -71,7 +71,7 @@ public class Dealer extends Participant {
      * Метод, когда описываем одну карту у дилера,
      * закрытую не трогаем.
      *
-     * @return [масть и ранг карты, ее стоимость и <закрытая карта>]
+     * @return [масть и ранг карты, ее стоимость и закрытая карта]
      * */
     public String describeOneCard() {
         Card openCard = hand.getCards().get(0);
