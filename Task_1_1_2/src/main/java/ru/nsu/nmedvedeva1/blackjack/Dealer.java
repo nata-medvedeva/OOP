@@ -3,11 +3,18 @@ package ru.nsu.nmedvedeva1.blackjack;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс, описывающий основные методы дилера (наследует поведение участника),
+ * такие как получение карты,
+ * обнажение скрытой карты, сброс руки, описание карт,
+ * когда одна закрыта, получение скрытой карты и логика,
+ * что дилер берет карты, пока у него сумма меньше 17.
+ * */
 public class Dealer extends Participant {
     private Card hiddenCard;
 
     /**
-     * Метод в котором создаем дилера с именем Дилер
+     * Метод в котором создаем дилера с именем Дилер.
      * */
     public Dealer() {
         super("Дилер");
@@ -17,7 +24,7 @@ public class Dealer extends Participant {
      * Метод, для получения карты,
      * если карт еще не было то добавляем дилеру,
      * если карты хиден не было то добавляем нашу карту как скрытую
-     * иначе просто добавляем карту к дилеру
+     * иначе просто добавляем карту к дилеру.
      *
      * @param card карта
      * */
@@ -32,7 +39,7 @@ public class Dealer extends Participant {
     }
 
     /**
-     * Метод, когда добавляем скрытую карту в руку
+     * Метод, когда добавляем скрытую карту в руку.
      * */
     public void revealHiddenCard() {
         if (hiddenCard != null) {
@@ -43,7 +50,7 @@ public class Dealer extends Participant {
 
     /**
      * Метод, который показывает,
-     * что дилер будет брать карты пока у него меньше 17 счет
+     * что дилер будет брать карты пока у него меньше 17 счет.
      *
      * @return правда или ложь
      * */
@@ -53,7 +60,7 @@ public class Dealer extends Participant {
 
     /**
      * Метод, когда сбрасываем руку у дилера
-     * и сбрасываем скрытую карту
+     * и сбрасываем скрытую карту.
      * */
     public void resetHand() {
         super.resetHand();
@@ -62,7 +69,9 @@ public class Dealer extends Participant {
 
     /**
      * Метод, когда описываем одну карту у дилера,
-     * закрытую не трогаем
+     * закрытую не трогаем.
+     *
+     * @return [масть и ранг карты, ее стоимость и <закрытая карта>]
      * */
     public String describeOneCard() {
         Card openCard = hand.getCards().get(0);
@@ -71,7 +80,9 @@ public class Dealer extends Participant {
     }
 
     /**
-     * Метод, для получения скрытой карты
+     * Метод, для получения скрытой карты.
+     *
+     * @return скрытой карты
      * */
     public Card getHiddenCard() {
         return hiddenCard;

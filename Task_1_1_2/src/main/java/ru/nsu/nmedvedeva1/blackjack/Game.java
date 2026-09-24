@@ -1,5 +1,9 @@
 package ru.nsu.nmedvedeva1.blackjack;
 
+/**
+ * Класс игры, где описываются ранд игры со стороны диелар и игрока
+ * и общая логика проведения раунда в целом.
+ * */
 public class Game {
     public final Gamer gamer = new Gamer("Игрок");
     public final Dealer dealer = new Dealer();
@@ -12,7 +16,7 @@ public class Game {
     /**
      * Метод, где мы начинаем проигрывать раунд,
      * печатаем вводные слова с добро пожаловать и тп
-     * и спрашиваем игрока, продолжать ли игру
+     * и спрашиваем игрока, продолжать ли игру.
      * */
     public void start() {
         Prints.printWelcome();
@@ -28,7 +32,7 @@ public class Game {
      * скидываем руки (то что с предыдущих раундов осталось),
      * раздаем по 2 карты, сразу проверяем на блэкджек,
      * запускаем отдельно раунд со стороны игрока и дилера,
-     * и выводим в конце счет раунда
+     * и выводим в конце счет раунда.
      * */
     public void playRound() {
         round++;
@@ -62,7 +66,8 @@ public class Game {
         }
 
         if (gamerRound()) {
-            Prints.printRoundResult(gamer.getHand().getScore(), dealer.getHand().getScore(), dealerScore, gamerScore);
+            Prints.printRoundResult(gamer.getHand().getScore(),
+                    dealer.getHand().getScore(), dealerScore, gamerScore);
             return;
         }
 
@@ -82,7 +87,10 @@ public class Game {
     /**
      * Метод, в котором мы возвращаем 1, если у игрока перебор,
      * пока игрок нажимает 1, раунд продолжается и он набирает карты,
-     * при 21 ему больше не даем набирать карты, ему уже хватит
+     * при 21 ему больше не даем набирать карты, ему уже хватит.
+     *
+     * @return правд, если у игрока + очко и надо прервать раунд,
+     * ложь в ином случае
      * */
     private boolean gamerRound() {
         Prints.printGamerTurn();
@@ -113,7 +121,7 @@ public class Game {
 
     /**
      * Метод, где дилер играет раунд, раскрываем закрытую карту,
-     * дилер набирает, в конце проверяем, что нет перебора
+     * дилер набирает, в конце проверяем, что нет перебора.
      * */
     private void dealerRound() {
         Prints.printDealerTurn();
@@ -139,14 +147,15 @@ public class Game {
     }
 
     /**
-     * Метод для тестов, описано какие флаги в каких случаях вернем
+     * Метод для тестов, описано какие флаги в каких случаях вернем.
      *
      * @param gamerScore счет игрока
      * @param dealerScore счет дилера
      * @param gamerBust перебор у игрока
      * @param dealerBust перебор у дилера
      * */
-    public static String winnerForTests(int gamerScore, int dealerScore, boolean gamerBust, boolean dealerBust) {
+    public static String winnerForTests(int gamerScore, int dealerScore,
+                                        boolean gamerBust, boolean dealerBust) {
         if (gamerBust) {
             return "DEALER";
         }
