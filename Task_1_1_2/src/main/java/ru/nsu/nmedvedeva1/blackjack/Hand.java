@@ -15,8 +15,14 @@ public class Hand {
     }
 
     public int getScore() {
-        int sum = cards.stream().mapToInt(Card::getBaseValue).sum();
-        long amountOfAces = cards.stream().filter(c -> c.getRank() == Rank.Ace).count();
+        int sum = 0;
+        int amountOfAces = 0;
+        for (Card card : cards) {
+            sum += card.getBaseValue();
+            if(card.getRank() == Rank.Ace) {
+                amountOfAces++;
+            }
+        }
         while (sum > 21 && amountOfAces > 0) {
             sum -= 10;
             amountOfAces--;
@@ -30,5 +36,37 @@ public class Hand {
 
     public boolean isBlackjack() {
         return cards.size() == 2 && getScore() == 21;
+    }
+
+    public String describe() {
+        int finalScore = getScore();
+        int curSum = 0;
+        for (Card card : cards) {
+            curSum += card.getBaseValue();
+        }
+
+        int acesToMin = (curSum - finalScore) / 10;
+        int acesDidMinCounter = 0;
+
+        String result = "[";
+        for (int i = 0; i < cards.size(); i++) {
+            Card c = cards.get(i);
+            int displayValue = c.getBaseValue();
+
+            if (c.getRank() == Rank.Ace && acesDidMinCounter < acesToMin) {
+                displayValue = 1;
+                acesDidMinCounter++;
+            }
+
+            result += c.toStringWithValue(displayValue);
+
+            // Добавляем запятую и пробел, если это не последняя карта в списке
+            if (i < cards.size() - 1) {
+                result += ", ";
+            }
+        }
+
+        result += "] > " + finalScore;
+        return result;
     }
 }

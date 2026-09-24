@@ -1,9 +1,5 @@
 package ru.nsu.nmedvedeva1.blackjack;
 
-import ru.nsu.nmedvedeva1.blackjack.Card;
-import ru.nsu.nmedvedeva1.blackjack.Rank;
-import ru.nsu.nmedvedeva1.blackjack.Suit;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -29,6 +25,7 @@ public class Deck{
     public Card drawCard() {
         if (cards.isEmpty()) {
             System.err.println("Колода пуста");
+            return null;
         }
         return cards.remove(cards.size() - 1);
     } 
