@@ -123,16 +123,28 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#playRound()" class="member-name-link">playRound</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Метод, в котором проигрывается весь раунд в общем:
+ скидываем руки (то что с предыдущих раундов осталось),
+ раздаем по 2 карты, сразу проверяем на блэкджек,
+ запускаем отдельно раунд со стороны игрока и дилера,
+ и выводим в конце счет раунда</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#start()" class="member-name-link">start</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Метод, где мы начинаем проигрывать раунд,
+ печатаем вводные слова с добро пожаловать и тп
+ и спрашиваем игрока, продолжать ли игру</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#winnerForTests(int,int,boolean,boolean)" class="member-name-link">winnerForTests</a><wbr>(int&nbsp;gamerScore,
  int&nbsp;dealerScore,
  boolean&nbsp;gamerBust,
  boolean&nbsp;dealerBust)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Метод для тестов, описано какие флаги в каких случаях вернем</div>
+</div>
 </div>
 </div>
 </div>
@@ -188,12 +200,20 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="start()">
 <h3>start</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">start</span>()</div>
+<div class="block">Метод, где мы начинаем проигрывать раунд,
+ печатаем вводные слова с добро пожаловать и тп
+ и спрашиваем игрока, продолжать ли игру</div>
 </section>
 </li>
 <li>
 <section class="detail" id="playRound()">
 <h3>playRound</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">playRound</span>()</div>
+<div class="block">Метод, в котором проигрывается весь раунд в общем:
+ скидываем руки (то что с предыдущих раундов осталось),
+ раздаем по 2 карты, сразу проверяем на блэкджек,
+ запускаем отдельно раунд со стороны игрока и дилера,
+ и выводим в конце счет раунда</div>
 </section>
 </li>
 <li>
@@ -203,6 +223,14 @@ loadScripts(document, 'script');</script>
  int&nbsp;dealerScore,
  boolean&nbsp;gamerBust,
  boolean&nbsp;dealerBust)</span></div>
+<div class="block">Метод для тестов, описано какие флаги в каких случаях вернем</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>gamerScore</code> - счет игрока</dd>
+<dd><code>dealerScore</code> - счет дилера</dd>
+<dd><code>gamerBust</code> - перебор у игрока</dd>
+<dd><code>dealerBust</code> - перебор у дилера</dd>
+</dl>
 </section>
 </li>
 </ul>
