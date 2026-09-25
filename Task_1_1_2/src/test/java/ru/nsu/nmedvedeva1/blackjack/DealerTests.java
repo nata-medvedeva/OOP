@@ -1,8 +1,9 @@
 package ru.nsu.nmedvedeva1.blackjack;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
@@ -52,5 +53,38 @@ public class DealerTests {
         assertTrue(description.contains("Король"));
         assertTrue(description.contains("<закрытая карта>"));
         assertFalse(description.contains("Пятерка"));
+    }
+
+    @Test
+    void resetHandShouldClearAllCards() {
+        Dealer dealer = new Dealer();
+        dealer.receiveCard(new Card(Suit.Spades, Rank.King));
+        dealer.receiveCard(new Card(Suit.Hearts, Rank.Five));
+
+        dealer.resetHand();
+
+        assertTrue(dealer.getHand().getCards().isEmpty());
+        assertNull(dealer.getHiddenCard());
+    }
+
+    @Test
+    void blackjackWithHidden() {
+        Dealer dealer = new Dealer();
+        dealer.receiveCard(new Card(Suit.Spades, Rank.King));
+        dealer.receiveCard(new Card(Suit.Hearts, Rank.Ace));
+
+        assertTrue(dealer.hasBlackjack());
+    }
+
+    @Test
+    void receiveThreeCard() {
+        Dealer dealer = new Dealer();
+        dealer.receiveCard(new Card(Suit.Spades, Rank.Ten));
+        dealer.receiveCard(new Card(Suit.Hearts, Rank.Five));
+        dealer.receiveCard(new Card(Suit.Clubs, Rank.Three));
+
+        assertEquals(2, dealer.getHand().getCards().size());
+        assertEquals(13, dealer.getHand().getScore());
+        assertEquals(Rank.Five, dealer.getHiddenCard().getRank());
     }
 }
