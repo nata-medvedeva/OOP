@@ -1,11 +1,10 @@
 package ru.nsu.nmedvedeva1.blackjack;
 
-import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -21,8 +20,8 @@ public class GameTests {
      * @param input входные данные
      * */
     private String runGame(String input) {
-        InputStream originalIn = System.in;
-        PrintStream originalOut = System.out;
+        final InputStream originalIn = System.in;
+        final PrintStream originalOut = System.out;
 
         ByteArrayInputStream testIn = new ByteArrayInputStream(input.getBytes());
         System.setIn(testIn);
@@ -57,7 +56,7 @@ public class GameTests {
      * Ввод нуля для остановки набора карт и еще одного для остановки игры в общем.
      * */
     @Test
-    void gameShouldStartRound1 () {
+    void gameShouldStartRound1() {
         String output = runGame("0\n0\n");
         assertTrue(output.contains("Раунд 1"));
         assertTrue(output.contains("Ваши карты:"));
@@ -68,7 +67,7 @@ public class GameTests {
      * Ввод 1-берем карту, 0-не продолжаем брать и 0- останавливаем игру.
      * */
     @Test
-    void gameToDrawCard () {
+    void gameToDrawCard() {
         String output = runGame("1\n0\n0\n");
         assertTrue(output.contains("Ваш ход"));
         assertTrue(output.contains("Ход дилера") || output.contains("Перебор!"));
@@ -78,7 +77,7 @@ public class GameTests {
      * Проверка, что изначально все значения счета нули.
      * */
     @Test
-    void gameShouldNullScores () {
+    void gameShouldNullScores() {
         Game game = new Game();
         assertEquals(0, game.getDealerScore());
         assertEquals(0, game.getGamerScore());
@@ -89,7 +88,7 @@ public class GameTests {
      * Проверяем, что есть оба участника.
      * */
     @Test
-    void gameShouldHaveGamerAndDealer () {
+    void gameShouldHaveGamerAndDealer() {
         Game game = new Game();
         assertNotNull(game.getGamer());
         assertNotNull(game.getDealer());

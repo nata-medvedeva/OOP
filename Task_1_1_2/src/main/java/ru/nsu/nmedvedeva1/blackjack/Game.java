@@ -51,21 +51,21 @@ public class Game {
             if (dealer.getHand().isBlackjack() && gamer.getHand().isBlackjack()) {
                 Prints.bothHaveBlackjack();
                 Prints.printRoundResult(gamer.getHand().getScore(),
-                        dealer.getHand().getScore(), dealerScore, gamerScore);
+                        dealer.getHand().getScore(), gamerScore, dealerScore);
                 return RoundResult.draw;
             }
             if (dealer.hasBlackjack()) {
                 Prints.dealerHasBlackjack();
                 updateScore(RoundResult.dealerWin);
                 Prints.printRoundResult(gamer.getHand().getScore(),
-                        dealer.getHand().getScore(), dealerScore, gamerScore);
+                        dealer.getHand().getScore(), gamerScore, dealerScore);
                 return RoundResult.dealerWin;
             }
             if (gamer.getHand().isBlackjack()) {
                 Prints.gamerHasBlackjack();
                 updateScore(RoundResult.gamerWin);
                 Prints.printRoundResult(gamer.getHand().getScore(),
-                        dealer.getHand().getScore(), dealerScore, gamerScore);
+                        dealer.getHand().getScore(), gamerScore, dealerScore);
                 return RoundResult.gamerWin;
             }
         }
@@ -73,16 +73,16 @@ public class Game {
         if (gamerRound()) {
             updateScore(RoundResult.dealerWin);
             Prints.printRoundResult(gamer.getHand().getScore(),
-                    dealer.getHand().getScore(), dealerScore, gamerScore);
+                    dealer.getHand().getScore(), gamerScore, dealerScore);
             return RoundResult.dealerWin;
         }
 
         dealerRound();
 
-        if(dealer.getHand().isBust()) {
+        if (dealer.getHand().isBust()) {
             updateScore(RoundResult.gamerWin);
             Prints.printRoundResult(gamer.getHand().getScore(),
-                    dealer.getHand().getScore(), dealerScore, gamerScore);
+                    dealer.getHand().getScore(), gamerScore, dealerScore);
             return RoundResult.gamerWin;
         }
 
@@ -99,7 +99,7 @@ public class Game {
         }
 
         updateScore(result);
-        Prints.printRoundResult(gamerHandScore, dealerHandScore, dealerScore, gamerScore);
+        Prints.printRoundResult(gamerHandScore, dealerHandScore, gamerScore, dealerScore);
 
         return result;
     }
@@ -109,8 +109,8 @@ public class Game {
      * пока игрок нажимает 1, раунд продолжается и он набирает карты,
      * при 21 ему больше не даем набирать карты, ему уже хватит.
      *
-     * @return правд, если у игрока + очко и надо прервать раунд,
-     * ложь в ином случае
+     * @return правда, если у игрока + очко и надо прервать раунд,
+     * ложь в ином случае.
      * */
     private boolean gamerRound() {
         Prints.printGamerTurn();

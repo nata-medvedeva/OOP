@@ -11,6 +11,7 @@ import java.util.List;
 public class Hand {
     private final List<Card> cards = new ArrayList<>();
     private int score = 0;
+    
     /**
      * Метод для добавления одной определенной карты к массиву карт.
      *

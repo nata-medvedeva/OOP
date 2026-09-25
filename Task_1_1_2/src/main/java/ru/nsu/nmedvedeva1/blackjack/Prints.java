@@ -76,7 +76,9 @@ public class Prints {
                 + "чтобы остановиться...");
         System.out.println();
         while (true) {
-            if (!scanner.hasNextLine()) return false;
+            if (!scanner.hasNextLine()) {
+                return false;
+            }
             String input = scanner.nextLine();
             if (input.equals("1")) {
                 return true;
@@ -96,7 +98,9 @@ public class Prints {
                 + "чтобы продолжить, и “0”, чтобы остановиться...");
         System.out.println();
         while (true) {
-            if (!scanner.hasNextLine()) return false;
+            if (!scanner.hasNextLine()){
+                return false;
+            }
             String input = scanner.nextLine();
             if (input.equals("1")) {
                 return true;
@@ -118,22 +122,31 @@ public class Prints {
      * */
     public static void printRoundResult(int gamerRoundScore, int dealerRoundScore,
                                         int totalGamerScore, int totalDealerScore) {
+        String roundResult;
         if (gamerRoundScore > 21) {
-            System.out.println("Вы проиграли раунд! Общий счет "
-                    + totalGamerScore + ":" + totalDealerScore );
+            roundResult = "Вы проиграли раунд!";
         } else if (dealerRoundScore > 21) {
-            System.out.println("Вы выиграли раунд! Общий счет "
-                    + totalGamerScore + ":" + totalDealerScore);
+            roundResult = "Вы выиграли раунд!";
         } else if (gamerRoundScore > dealerRoundScore) {
-            System.out.println("Вы выиграли раунд! Общий счет "
-                    + totalGamerScore + ":" + totalDealerScore);
+            roundResult = "Вы выиграли раунд!";
         } else if (dealerRoundScore > gamerRoundScore) {
-            System.out.println("Вы проиграли раунд! Общий счет "
-                    + totalGamerScore + ":" + totalDealerScore);
+            roundResult = "Вы проиграли раунд!";
         } else {
-            System.out.println("Ничья! Общий счет "
-                    + totalGamerScore + ":" + totalDealerScore);
+            roundResult = "Ничья в раунде!";
         }
+
+        String s;
+        if (totalGamerScore > totalDealerScore) {
+            s = " в вашу пользу.";
+        } else if (totalDealerScore > totalGamerScore) {
+            s = " в пользу Дилера.";
+        } else {
+            s = ".";
+        }
+
+        System.out.println(roundResult + " Общий счёт "
+                + totalGamerScore + ":" + totalDealerScore + s);
+
     }
 
     /**
@@ -199,7 +212,7 @@ public class Prints {
                 + card.toStringWithValue(card.getBaseValue()));
     }
 
-    public static void gamerGot21(){
+    public static void gamerGot21() {
         System.out.println("Вы набрали 21! Ход автоматически передается дилеру.");
         System.out.println();
     }
