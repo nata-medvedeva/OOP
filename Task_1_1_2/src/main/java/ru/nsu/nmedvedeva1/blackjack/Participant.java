@@ -49,6 +49,6 @@ public abstract class Participant {
      * Метод, где сбрасываем, отчищаем руку.
      * */
     public void resetHand() {
-        hand.getCards().clear();
+        hand.clear();
     }
 }

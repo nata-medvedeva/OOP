@@ -7,7 +7,15 @@ import java.util.Scanner;
  * все оформления по типу ваш ход, ход диллера и тп.
  * */
 public class Prints {
-    private static final Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
+
+    /**
+     * Метод для тестов: пересоздает Scanner, чтобы он подхватил
+     * новый System.in после System.setIn().
+     */
+    public static void resetScanner() {
+        scanner = new Scanner(System.in);
+    }
 
     /**
      * Вывод приветствия.
@@ -68,6 +76,7 @@ public class Prints {
                 + "чтобы остановиться...");
         System.out.println();
         while (true) {
+            if (!scanner.hasNextLine()) return false;
             String input = scanner.nextLine();
             if (input.equals("1")) {
                 return true;
@@ -87,6 +96,7 @@ public class Prints {
                 + "чтобы продолжить, и “0”, чтобы остановиться...");
         System.out.println();
         while (true) {
+            if (!scanner.hasNextLine()) return false;
             String input = scanner.nextLine();
             if (input.equals("1")) {
                 return true;
@@ -108,15 +118,21 @@ public class Prints {
      * */
     public static void printRoundResult(int gamerRoundScore, int dealerRoundScore,
                                         int totalGamerScore, int totalDealerScore) {
-        if (gamerRoundScore > dealerRoundScore) {
+        if (gamerRoundScore > 21) {
+            System.out.println("Вы проиграли раунд! Общий счет "
+                    + totalGamerScore + ":" + totalDealerScore );
+        } else if (dealerRoundScore > 21) {
             System.out.println("Вы выиграли раунд! Общий счет "
-                    + totalGamerScore + ":" + totalDealerScore + " в вашу пользу.");
+                    + totalGamerScore + ":" + totalDealerScore);
+        } else if (gamerRoundScore > dealerRoundScore) {
+            System.out.println("Вы выиграли раунд! Общий счет "
+                    + totalGamerScore + ":" + totalDealerScore);
         } else if (dealerRoundScore > gamerRoundScore) {
             System.out.println("Вы проиграли раунд! Общий счет "
-                    + totalGamerScore + ":" + totalDealerScore + " в пользу Дилера.");
+                    + totalGamerScore + ":" + totalDealerScore);
         } else {
-            System.out.println("Ничья! Общий счет " + totalGamerScore
-                    + ":" + totalDealerScore + ".");
+            System.out.println("Ничья! Общий счет "
+                    + totalGamerScore + ":" + totalDealerScore);
         }
     }
 
@@ -181,5 +197,10 @@ public class Prints {
     public static void printDealerRevealHiddenCard(Card card) {
         System.out.println("Дилер открывает закрытую карту "
                 + card.toStringWithValue(card.getBaseValue()));
+    }
+
+    public static void gamerGot21(){
+        System.out.println("Вы набрали 21! Ход автоматически передается дилеру.");
+        System.out.println();
     }
 }

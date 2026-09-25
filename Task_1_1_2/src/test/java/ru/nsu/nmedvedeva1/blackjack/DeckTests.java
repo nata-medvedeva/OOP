@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Тесты для класса колоды.
+ * */
 public class DeckTests {
     @Test
     void decksThreeCardCount() {

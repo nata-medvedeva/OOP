@@ -87,4 +87,21 @@ public class Dealer extends Participant {
     public Card getHiddenCard() {
         return hiddenCard;
     }
+
+    /**
+     * Проверяет, есть ли у дилера блэкджек.
+     *
+     * @return true, если у дилера блэкджек
+     */
+    public boolean hasBlackjack() {
+        if (hiddenCard == null) {
+            return hand.isBlackjack();
+        }
+
+        hand.addCard(hiddenCard);
+        boolean isBj = hand.isBlackjack();
+
+        hand.getCards().remove(hand.getCards().size() - 1);
+        return isBj;
+    }
 }

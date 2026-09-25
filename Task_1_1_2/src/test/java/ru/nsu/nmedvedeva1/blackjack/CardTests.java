@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Тесты для класса карты.
+ * */
 public class CardTests {
     @Test
     void toStringFormat() {

@@ -10,7 +10,7 @@ import java.util.List;
  * */
 public class Hand {
     private final List<Card> cards = new ArrayList<>();
-
+    private int score = 0;
     /**
      * Метод для добавления одной определенной карты к массиву карт.
      *
@@ -18,6 +18,27 @@ public class Hand {
      * */
     public void addCard(Card card) {
         cards.add(card);
+        recalculateScore();
+    }
+
+    /**
+     * Пересчитывает сумму очков с учётом правила тузов.
+     * Вызывается только при изменении руки (добавлении карты или сброс).
+     */
+    private void recalculateScore() {
+        int sum = 0;
+        int acesCount = 0;
+        for (Card card : cards) {
+            sum += card.getBaseValue();
+            if (card.getRank() == Rank.Ace) {
+                acesCount++;
+            }
+        }
+        while (sum > 21 && acesCount > 0) {
+            sum -= 10;
+            acesCount--;
+        }
+        this.score = sum;
     }
 
     /**
@@ -30,27 +51,12 @@ public class Hand {
     }
 
     /**
-     * Метод для подсчета очков,
-     * сразу обрабатываем тузы правильно,
-     * при привышении 21 и когда у нас есть хотя бы 1 туз,
-     * меняем значение туза с 11 на 1.
+     * Метод для возварата счета.
      *
      * @return счет
      * */
     public int getScore() {
-        int sum = 0;
-        int amountOfAces = 0;
-        for (Card card : cards) {
-            sum += card.getBaseValue();
-            if (card.getRank() == Rank.Ace) {
-                amountOfAces++;
-            }
-        }
-        while (sum > 21 && amountOfAces > 0) {
-            sum -= 10;
-            amountOfAces--;
-        }
-        return sum;
+        return score;
     }
 
     /**
@@ -87,7 +93,8 @@ public class Hand {
         int acesToMin = (curSum - finalScore) / 10;
         int acesDidMinCounter = 0;
 
-        String result = "[";
+        StringBuilder result = new StringBuilder();
+        result.append("[");
         for (int i = 0; i < cards.size(); i++) {
             Card c = cards.get(i);
             int displayValue = c.getBaseValue();
@@ -97,14 +104,22 @@ public class Hand {
                 acesDidMinCounter++;
             }
 
-            result += c.toStringWithValue(displayValue);
+            result.append(c.toStringWithValue(displayValue));
 
             if (i < cards.size() - 1) {
-                result += ", ";
+                result.append(", ");
             }
         }
 
-        result += "] > " + finalScore;
-        return result;
+        result.append("] > ").append(finalScore);
+        return result.toString();
+    }
+
+    /**
+     * Сбрасывает руку и обнуляет кэшированный счёт.
+     */
+    public void clear() {
+        cards.clear();
+        score = 0;
     }
 }

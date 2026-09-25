@@ -1,32 +1,128 @@
 package ru.nsu.nmedvedeva1.blackjack;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+/**
+ * Тесты для реализации самой игры.
+ * */
 public class GameTests {
-    @Test
-    void game1() {
-        assertEquals("GAMER", Game.winnerForTests(20, 22, false, true));
+    /**
+     * Перехватываем входную и выходную строку, потом обратно их вставляем.
+     *
+     * @param input входные данные
+     * */
+    private String runGame(String input) {
+        InputStream originalIn = System.in;
+        PrintStream originalOut = System.out;
+
+        ByteArrayInputStream testIn = new ByteArrayInputStream(input.getBytes());
+        System.setIn(testIn);
+
+        Prints.resetScanner();
+
+        ByteArrayOutputStream testOut = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(testOut));
+
+        try {
+            Game game = new Game();
+            game.start();
+        } finally {
+            System.setIn(originalIn);
+            System.setOut(originalOut);
+            Prints.resetScanner();
+        }
+
+        return testOut.toString();
     }
 
+    /**
+     * Проверка на вывод приветствия.
+     * */
     @Test
-    void game2() {
-        assertEquals("DEALER", Game.winnerForTests(22, 20, true, false));
+    void gameShouldPrintWelcome() {
+        String output = runGame("0\n");
+        assertTrue(output.contains("Добро пожаловать в Блэкджек!"));
     }
 
+    /**
+     * Ввод нуля для остановки набора карт и еще одного для остановки игры в общем.
+     * */
     @Test
-    void game3() {
-        assertEquals("GAMER", Game.winnerForTests(20, 18, false, false));
+    void gameShouldStartRound1 () {
+        String output = runGame("0\n0\n");
+        assertTrue(output.contains("Раунд 1"));
+        assertTrue(output.contains("Ваши карты:"));
+        assertTrue(output.contains("Карты дилера:"));
     }
 
+    /**
+     * Ввод 1-берем карту, 0-не продолжаем брать и 0- останавливаем игру.
+     * */
     @Test
-    void game4() {
-        assertEquals("DEALER", Game.winnerForTests(18, 20, false, false));
+    void gameToDrawCard () {
+        String output = runGame("1\n0\n0\n");
+        assertTrue(output.contains("Ваш ход"));
+        assertTrue(output.contains("Ход дилера") || output.contains("Перебор!"));
     }
 
+    /**
+     * Проверка, что изначально все значения счета нули.
+     * */
     @Test
-    void game5() {
-        assertEquals("DRAW", Game.winnerForTests(19, 19, false, false));
+    void gameShouldNullScores () {
+        Game game = new Game();
+        assertEquals(0, game.getDealerScore());
+        assertEquals(0, game.getGamerScore());
+        assertEquals(0, game.getRound());
+    }
+
+    /**
+     * Проверяем, что есть оба участника.
+     * */
+    @Test
+    void gameShouldHaveGamerAndDealer () {
+        Game game = new Game();
+        assertNotNull(game.getGamer());
+        assertNotNull(game.getDealer());
+        assertEquals("Игрок", game.getGamer().getName());
+        assertEquals("Дилер", game.getDealer().getName());
+    }
+
+    /**
+     * Проверка цикла игры: завершение раунда и начало нового.
+     * Не берем новую карту, играем новый раунд, снова не берем карту и
+     * выходим из игры, заканчиваем ее не начиная следующий раунд.
+     */
+    @Test
+    void gameShouldPlayMultipleRounds() {
+        String output = runGame("0\n1\n0\n0\n");
+
+        assertTrue(output.contains("Раунд 1"));
+        assertTrue(output.contains("Раунд 2"));
+        assertTrue(output.contains("Хотите сыграть еще раз?"));
+    }
+
+    /**
+     * Умышленно делаем перебор у игрока, после этого заканчиваем игру.
+     * */
+    @Test
+    void gameShouldHandleGamerBust() {
+        StringBuilder input = new StringBuilder();
+        for (int i = 0; i < 15; i++) {
+            input.append("1\n");
+        }
+        input.append("0\n");
+        String output = runGame(input.toString());
+
+        assertTrue(output.contains("Перебор!"));
     }
 }

@@ -1,17 +1,17 @@
 package ru.nsu.nmedvedeva1.blackjack;
 
 /**
- * Класс игры, где описываются ранд игры со стороны диелар и игрока
+ * Класс игры, где описываются раунд игры со стороны дилера и игрока
  * и общая логика проведения раунда в целом.
  * */
 public class Game {
-    public final Gamer gamer = new Gamer("Игрок");
-    public final Dealer dealer = new Dealer();
-    Deck deck = new Deck(3);
+    private final Gamer gamer = new Gamer("Игрок");
+    private final Dealer dealer = new Dealer();
+    private Deck deck = new Deck(3);
 
-    int dealerScore = 0;
-    int gamerScore = 0;
-    int round = 0;
+    private int dealerScore = 0;
+    private int gamerScore = 0;
+    private int round = 0;
 
     /**
      * Метод, где мы начинаем проигрывать раунд,
@@ -28,13 +28,12 @@ public class Game {
     }
 
     /**
-     * Метод, в котором проигрывается весь раунд в общем:
-     * скидываем руки (то что с предыдущих раундов осталось),
-     * раздаем по 2 карты, сразу проверяем на блэкджек,
-     * запускаем отдельно раунд со стороны игрока и дилера,
-     * и выводим в конце счет раунда.
+     * Метод, в котором проигрывается весь раунд в общем,
+     * но не обновляется счет игры.
+     *
+     * @return результат раунда
      * */
-    public void playRound() {
+    public RoundResult playRound() {
         round++;
         gamer.resetHand();
         dealer.resetHand();
@@ -51,37 +50,58 @@ public class Game {
         if (gamer.getHand().isBlackjack() || dealer.getHand().isBlackjack()) {
             if (dealer.getHand().isBlackjack() && gamer.getHand().isBlackjack()) {
                 Prints.bothHaveBlackjack();
-                return;
+                Prints.printRoundResult(gamer.getHand().getScore(),
+                        dealer.getHand().getScore(), dealerScore, gamerScore);
+                return RoundResult.draw;
             }
-            if (dealer.getHand().isBlackjack()) {
+            if (dealer.hasBlackjack()) {
                 Prints.dealerHasBlackjack();
-                dealerScore++;
-                return;
+                updateScore(RoundResult.dealerWin);
+                Prints.printRoundResult(gamer.getHand().getScore(),
+                        dealer.getHand().getScore(), dealerScore, gamerScore);
+                return RoundResult.dealerWin;
             }
             if (gamer.getHand().isBlackjack()) {
                 Prints.gamerHasBlackjack();
-                gamerScore++;
-                return;
+                updateScore(RoundResult.gamerWin);
+                Prints.printRoundResult(gamer.getHand().getScore(),
+                        dealer.getHand().getScore(), dealerScore, gamerScore);
+                return RoundResult.gamerWin;
             }
         }
 
         if (gamerRound()) {
+            updateScore(RoundResult.dealerWin);
             Prints.printRoundResult(gamer.getHand().getScore(),
                     dealer.getHand().getScore(), dealerScore, gamerScore);
-            return;
+            return RoundResult.dealerWin;
         }
 
         dealerRound();
 
+        if(dealer.getHand().isBust()) {
+            updateScore(RoundResult.gamerWin);
+            Prints.printRoundResult(gamer.getHand().getScore(),
+                    dealer.getHand().getScore(), dealerScore, gamerScore);
+            return RoundResult.gamerWin;
+        }
+
         int gamerHandScore = gamer.getHand().getScore();
         int dealerHandScore = dealer.getHand().getScore();
 
+        RoundResult result;
         if (gamerHandScore > dealerHandScore) {
-            gamerScore++;
+            result = RoundResult.gamerWin;
         } else if (dealerHandScore > gamerHandScore) {
-            dealerScore++;
+            result = RoundResult.dealerWin;
+        } else {
+            result = RoundResult.draw;
         }
+
+        updateScore(result);
         Prints.printRoundResult(gamerHandScore, dealerHandScore, dealerScore, gamerScore);
+
+        return result;
     }
 
     /**
@@ -104,13 +124,11 @@ public class Game {
 
             if (gamer.getHand().isBust()) {
                 Prints.gamerHasBust();
-                dealerScore++;
                 return true;
             }
 
             if (gamer.getHand().getScore() == 21) {
-                System.out.println("Вы набрали 21! Ход автоматически передается дилеру.");
-                System.out.println();
+                Prints.gamerGot21();
                 break;
             }
 
@@ -142,32 +160,64 @@ public class Game {
 
         if (dealer.getHand().isBust()) {
             Prints.dealerHasBust();
-            gamerScore++;
         }
     }
 
     /**
-     * Метод для тестов, описано какие флаги в каких случаях вернем.
+     * Метод возвращает счёт дилера по всей игре.
      *
-     * @param gamerScore счет игрока
-     * @param dealerScore счет дилера
-     * @param gamerBust перебор у игрока
-     * @param dealerBust перебор у дилера
-     * */
-    public static String winnerForTests(int gamerScore, int dealerScore,
-                                        boolean gamerBust, boolean dealerBust) {
-        if (gamerBust) {
-            return "DEALER";
+     * @return количество раундов, выигранных дилером
+     */
+    public int getDealerScore() {
+        return dealerScore;
+    }
+
+    /**
+     * Метод возвращает счёт игрока по всей игре.
+     *
+     * @return количество раундов, выигранных игроком
+     */
+    public int getGamerScore() {
+        return gamerScore;
+    }
+
+    /**
+     * Возвращает номер текущего раунда.
+     *
+     * @return номер раунда
+     */
+    public int getRound() {
+        return round;
+    }
+
+    /**
+     * Возвращает игрока.
+     *
+     * @return объект игрока
+     */
+    public Gamer getGamer() {
+        return gamer;
+    }
+
+    /**
+     * Возвращает дилера.
+     *
+     * @return объект дилера
+     */
+    public Dealer getDealer() {
+        return dealer;
+    }
+
+    /**
+     * Обновляет общий счёт игры на основе результата раунда.
+     *
+     * @param result результат завершённого раунда
+     */
+    private void updateScore(RoundResult result) {
+        if (result == RoundResult.gamerWin) {
+            gamerScore++;
+        } else if (result == RoundResult.dealerWin) {
+            dealerScore++;
         }
-        if (dealerBust) {
-            return "GAMER";
-        }
-        if (gamerScore > dealerScore) {
-            return "GAMER";
-        }
-        if (dealerScore > gamerScore) {
-            return "DEALER";
-        }
-        return "DRAW";
     }
 }
