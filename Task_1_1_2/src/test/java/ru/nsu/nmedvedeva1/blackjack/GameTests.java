@@ -29,7 +29,7 @@ public class GameTests {
         Prints.resetScanner();
 
         ByteArrayOutputStream testOut = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(testOut));
+        System.setOut(new PrintStream(testOut, true));
 
         try {
             Game game = new Game();
