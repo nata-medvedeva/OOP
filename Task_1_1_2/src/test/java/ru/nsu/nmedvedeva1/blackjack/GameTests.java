@@ -125,4 +125,26 @@ public class GameTests {
 
         assertTrue(output.contains("Перебор!"));
     }
+
+    /**
+     * Прямая проверка обновления счета при победе игрока.
+     */
+    @Test
+    void updateScore() {
+        Game game = new Game();
+        game.updateScore(RoundResult.gamerWin);
+        assertEquals(1, game.getGamerScore());
+        assertEquals(0, game.getDealerScore());
+    }
+
+    /**
+     * Прямая проверка обновления счета при ничьей.
+     */
+    @Test
+    void updateScoreDraw() {
+        Game game = new Game();
+        game.updateScore(RoundResult.draw);
+        assertEquals(0, game.getGamerScore());
+        assertEquals(0, game.getDealerScore());
+    }
 }

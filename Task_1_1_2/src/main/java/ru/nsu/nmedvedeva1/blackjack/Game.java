@@ -212,7 +212,7 @@ public class Game {
      *
      * @param result результат завершённого раунда
      */
-    private void updateScore(RoundResult result) {
+    void updateScore(RoundResult result) {
         if (result == RoundResult.gamerWin) {
             gamerScore++;
         } else if (result == RoundResult.dealerWin) {
