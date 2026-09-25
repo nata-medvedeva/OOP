@@ -98,7 +98,7 @@ public class Prints {
                 + "чтобы продолжить, и “0”, чтобы остановиться...");
         System.out.println();
         while (true) {
-            if (!scanner.hasNextLine()){
+            if (!scanner.hasNextLine()) {
                 return false;
             }
             String input = scanner.nextLine();
