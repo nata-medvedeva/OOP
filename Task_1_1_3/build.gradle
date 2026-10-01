@@ -4,7 +4,7 @@ plugins {
 
 }
 
-group = 'ru.nsu.nmedvedeva1.Task_1_1_2'
+group = 'ru.nsu.nmedvedeva1.Task_1_1_3'
 version = '1.0-SNAPSHOT'
 
 repositories {
