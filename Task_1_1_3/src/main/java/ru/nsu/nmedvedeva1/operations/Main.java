@@ -4,7 +4,7 @@ package ru.nsu.nmedvedeva1.operations;
 * Точка входа в программу.
 * */
 public class Main {
-    /*
+    /**
     * Запуск работы с примером.
     * */
     static void main(String[] args) {

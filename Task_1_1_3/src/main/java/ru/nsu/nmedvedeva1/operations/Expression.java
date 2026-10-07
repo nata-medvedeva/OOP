@@ -3,7 +3,7 @@ package ru.nsu.nmedvedeva1.operations;
 import java.util.HashMap;
 import java.util.Map;
 
-/*
+/**
  * Абстрактный класс выражения.
  * */
 public abstract class Expression {

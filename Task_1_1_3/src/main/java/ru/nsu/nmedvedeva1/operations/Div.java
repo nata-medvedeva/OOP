@@ -5,9 +5,10 @@ import java.util.Map;
 /**
  * Класс для деления.
  * */
-public class Div extends Expression{
+public class Div extends Expression {
     private final Expression left;
     private final Expression right;
+
     /**
      * Создаёт выражение частного.
      *
@@ -37,7 +38,8 @@ public class Div extends Expression{
      */
     @Override
     public Expression derivative(String var) {
-        return new Div(new Sub(new Mul(left.derivative(var), right), new Mul(left, right.derivative(var))), new Mul(right, right));
+        return new Div(new Sub(new Mul(left.derivative(var), right),
+                new Mul(left, right.derivative(var))), new Mul(right, right));
     }
 
     /**
@@ -50,7 +52,7 @@ public class Div extends Expression{
     public int eval(Map<String, Integer> values) {
         int leftValue = left.eval(values);
         int rightValue = right.eval(values);
-        if (rightValue != 0){
+        if (rightValue != 0) {
             return leftValue / rightValue;
         }
         throw new ArithmeticException("Division by zero");

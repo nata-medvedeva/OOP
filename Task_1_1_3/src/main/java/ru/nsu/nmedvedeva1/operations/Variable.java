@@ -2,10 +2,10 @@ package ru.nsu.nmedvedeva1.operations;
 
 import java.util.Map;
 
-/*
+/**
  * Класс для переменной.
  * */
-public class Variable extends Expression{
+public class Variable extends Expression {
     private final String name;
 
     /**
@@ -49,7 +49,7 @@ public class Variable extends Expression{
      */
     @Override
     public int eval (Map<String, Integer> values) {
-        if(values.containsKey(name)) {
+        if (values.containsKey(name)) {
             return values.get(name);
         }
         throw new IllegalStateException("Variable" + name + "unknown");

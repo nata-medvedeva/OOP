@@ -2,12 +2,13 @@ package ru.nsu.nmedvedeva1.operations;
 
 import java.util.Map;
 
-/*
+/**
  * Класс для умножения.
  * */
-public class Mul extends Expression{
+public class Mul extends Expression {
     private final Expression left;
     private final Expression right;
+    
     /**
      * Создаёт выражение произведения.
      *

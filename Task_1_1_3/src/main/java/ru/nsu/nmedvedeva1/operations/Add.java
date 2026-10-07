@@ -2,10 +2,10 @@ package ru.nsu.nmedvedeva1.operations;
 
 import java.util.Map;
 
-/*
+/**
  * Класс для суммы.
  * */
-public class Add extends Expression{
+public class Add extends Expression {
     private final Expression left;
     private final Expression right;
 
