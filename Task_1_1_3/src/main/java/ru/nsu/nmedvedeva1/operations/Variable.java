@@ -48,7 +48,7 @@ public class Variable extends Expression {
      * @return значение переменной
      */
     @Override
-    public int eval (Map<String, Integer> values) {
+    public int eval(Map<String, Integer> values) {
         if (values.containsKey(name)) {
             return values.get(name);
         }
