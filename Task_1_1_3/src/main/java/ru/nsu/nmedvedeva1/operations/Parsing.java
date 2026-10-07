@@ -1,6 +1,15 @@
 package ru.nsu.nmedvedeva1.operations;
 
+/**
+ * Парсер строк.
+ */
 public class Parsing {
+    /**
+     * Разбирает строку в выражении по символам, рекурсивно, по частям.
+     *
+     * @param string строка вида в кавычках
+     * @return объект Expression выражение
+     */
     public static Expression toParse(String string) {
         String str = hasWhitespace(string);
 
@@ -60,11 +69,22 @@ public class Parsing {
         throw new IllegalArgumentException("Can not to parse the string: " + str);
     }
 
-
+    /**
+     * Удаляет все пробелы из строки.
+     *
+     * @param str исходная строка
+     * @return строка без пробелов
+     */
     public static String hasWhitespace(String str) {
         return str.replace(" ", "");
     }
 
+    /**
+     * Проверяет, является ли символ оператором (+, -, *, /).
+     *
+     * @param c проверяемый символ
+     * @return true, если символ — оператор
+     */
     private static boolean isOperator(char c) {
         return c == '+' || c == '-' || c == '*' || c == '/';
     }
