@@ -1,6 +1,6 @@
 package ru.nsu.nmedvedeva1.operations;
 
-/*
+/**
 * Точка входа в программу.
 * */
 public class Main {

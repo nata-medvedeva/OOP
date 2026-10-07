@@ -2,7 +2,7 @@ package ru.nsu.nmedvedeva1.operations;
 
 import java.util.Map;
 
-/*
+/**
  * Класс для деления.
  * */
 public class Div extends Expression{

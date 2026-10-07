@@ -1,11 +1,11 @@
 package ru.nsu.nmedvedeva1.operations;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-/*
+import org.junit.jupiter.api.Test;
+
+/**
  * Тесты на переменные, их печать и сравнение, также тест на невозможное выражение.
  * */
 public class VariableTests {

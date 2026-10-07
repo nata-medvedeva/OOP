@@ -1,11 +1,11 @@
 package ru.nsu.nmedvedeva1.operations;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-/*
+import org.junit.jupiter.api.Test;
+
+/**
  * Тесты на деление, в том числе деление на 0.
  * */
 public class DivTests {
@@ -25,7 +25,9 @@ public class DivTests {
     void divByZeroThrowsException() {
         Expression expr = new Div(new Number(10), new Number(0));
 
-        assertThrows(ArithmeticException.class, () -> {expr.eval("x = 10");});
+        assertThrows(ArithmeticException.class, () -> {
+            expr.eval("x = 10");
+        });
     }
 
     @Test

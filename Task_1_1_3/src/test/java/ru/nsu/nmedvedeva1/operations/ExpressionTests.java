@@ -1,10 +1,10 @@
 package ru.nsu.nmedvedeva1.operations;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/*
+import org.junit.jupiter.api.Test;
+
+/**
 * Тест для комплексного выражения.
 * */
 public class ExpressionTests {
