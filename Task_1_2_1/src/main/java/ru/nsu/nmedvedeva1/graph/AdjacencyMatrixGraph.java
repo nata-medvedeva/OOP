@@ -182,7 +182,7 @@ public class AdjacencyMatrixGraph<T> extends AbstractGraph<T> {
 
         for (int column = 0; column < vertices.size(); column++) {
             if (matrix[row][column]) {
-                 result.add(vertices.get(column));
+                result.add(vertices.get(column));
             }
         }
         return result;
