@@ -20,7 +20,7 @@ public class GraphReader {
      * @param <T> тип вершины
      * @throws FileNotFoundException если файл не найден
      */
-    public static <T> void read (
+    public static <T> void read(
         Graph<T> graph,
         String fileName,
         Function<String, T> converter

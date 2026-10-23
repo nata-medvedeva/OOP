@@ -46,10 +46,10 @@ class AbstractGraphTests {
     @Test
     void equalsDifferentEdgeCount() {
         Graph<Integer> a = new AdjacencyListGraph<>();
-        Graph<Integer> b = new AdjacencyListGraph<>();
         a.addVertex(1);
         a.addVertex(2);
         a.addEdge(1, 2);
+        Graph<Integer> b = new AdjacencyListGraph<>();
         b.addVertex(1);
         b.addVertex(2);
         assertNotEquals(a, b);
@@ -58,10 +58,10 @@ class AbstractGraphTests {
     @Test
     void equalsDifferentVertices() {
         Graph<Integer> a = new AdjacencyListGraph<>();
-        Graph<Integer> b = new AdjacencyListGraph<>();
         a.addVertex(1);
         a.addVertex(2);
         a.addEdge(1, 2);
+        Graph<Integer> b = new AdjacencyListGraph<>();
         b.addVertex(3);
         b.addVertex(4);
         b.addEdge(3, 4);
@@ -71,11 +71,11 @@ class AbstractGraphTests {
     @Test
     void equalsDifferentEdges() {
         Graph<Integer> a = new AdjacencyListGraph<>();
-        Graph<Integer> b = new AdjacencyListGraph<>();
         a.addVertex(1);
         a.addVertex(2);
         a.addVertex(3);
         a.addEdge(1, 2);
+        Graph<Integer> b = new AdjacencyListGraph<>();
         b.addVertex(1);
         b.addVertex(2);
         b.addVertex(3);

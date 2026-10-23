@@ -1,16 +1,15 @@
 package ru.nsu.nmedvedeva1.Task_1_2_1;
 
-import org.junit.jupiter.api.Test;
-
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Тесты для проверки работы dfs.
  */
-class DFSTest {
+class DfsTest {
     private Graph createChain(Graph graph) {
         graph.addVertex(1);
         graph.addVertex(2);
@@ -27,21 +26,21 @@ class DFSTest {
     @Test
     void adjacencyListGraphSortTest() {
         Graph graph = createChain(new AdjacencyListGraph());
-        TopologicalSort sort = new DFS();
+        TopologicalSort sort = new Dfs();
         assertEquals(List.of(1, 2, 3, 4), sort.sort(graph));
     }
 
     @Test
     void adjacencyMatrixGraphSortTest() {
         Graph graph = createChain(new AdjacencyMatrixGraph());
-        TopologicalSort sort = new DFS();
+        TopologicalSort sort = new Dfs();
         assertEquals(List.of(1, 2, 3, 4), sort.sort(graph));
     }
 
     @Test
     void incidenceMatrixGraphSortTest() {
         Graph graph = createChain(new IncidenceMatrixGraph());
-        TopologicalSort sort = new DFS();
+        TopologicalSort sort = new Dfs();
         assertEquals(List.of(1, 2, 3, 4), sort.sort(graph));
     }
 
@@ -57,7 +56,7 @@ class DFSTest {
         graph.addEdge(2, 3);
         graph.addEdge(3, 1);
 
-        TopologicalSort sort = new DFS();
+        TopologicalSort sort = new Dfs();
 
         assertThrows(RuntimeException.class, () -> sort.sort(graph));
     }

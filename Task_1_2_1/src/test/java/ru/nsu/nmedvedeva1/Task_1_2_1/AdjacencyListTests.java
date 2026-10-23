@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * Тесты для проверки работы списка смежности.
  */
-class AdjacencyListGraphTest {
+class AdjacencyListGraphTests {
     @Test
     void addVertexTest() {
         Graph graph = new AdjacencyListGraph();

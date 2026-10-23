@@ -8,7 +8,7 @@ import java.util.Objects;
  *
  * @param <T> тип вершины
  */
-public abstract class AbstractGraph<T> implements Graph<T>{
+public abstract class AbstractGraph<T> implements Graph<T> {
 
     /**
      * Сравнивает два графа.

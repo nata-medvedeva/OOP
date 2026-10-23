@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @param <T> тип вершины
  */
-public class DFS<T> implements TopologicalSort<T> {
+public class Dfs<T> implements TopologicalSort<T> {
 
     /**
      * Сортирует вершины графа.

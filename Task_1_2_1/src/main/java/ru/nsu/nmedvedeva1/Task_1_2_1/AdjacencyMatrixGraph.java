@@ -71,7 +71,7 @@ public class AdjacencyMatrixGraph<T> extends AbstractGraph<T> {
             if (i == index) {
                 continue;
             }
-            for (int j = 0; j< oldSize; j++) {
+            for (int j = 0; j < oldSize; j++) {
                 if (j == index) {
                     continue;
                 }
@@ -181,9 +181,9 @@ public class AdjacencyMatrixGraph<T> extends AbstractGraph<T> {
         }
 
         for (int column = 0; column < vertices.size(); column++) {
-             if (matrix[row][column]) {
+            if (matrix[row][column]) {
                  result.add(vertices.get(column));
-             }
+            }
         }
         return result;
     }
@@ -198,7 +198,7 @@ public class AdjacencyMatrixGraph<T> extends AbstractGraph<T> {
         List<Edge<T>> result = new ArrayList<>();
         for (int i = 0; i < vertices.size(); i++) {
             for (int j = 0; j < vertices.size(); j++) {
-                if (matrix[i][j]){
+                if (matrix[i][j]) {
                     result.add(new Edge<>(vertices.get(i), vertices.get(j)));
                 }
             }
@@ -216,7 +216,7 @@ public class AdjacencyMatrixGraph<T> extends AbstractGraph<T> {
         int counter = 0;
         for (int i = 0; i < vertices.size(); i++) {
             for (int j = 0; j < vertices.size(); j++) {
-                if (matrix[i][j]){
+                if (matrix[i][j]) {
                     counter++;
                 }
             }
