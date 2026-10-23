@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+/**
+ * Тесты для проверки работы ребра.
+ */
 class EdgeTest {
     @Test
     void gettersTest() {
@@ -43,5 +46,16 @@ class EdgeTest {
         Edge edge = new Edge(1, 2);
 
         assertEquals("1->2", edge.toString());
+    }
+
+    @Test
+    void equalsNullTest() {
+        Edge<Integer> e = new Edge<>(1, 2);
+        assertNotEquals(e, null);
+    }
+
+    @Test
+    void hashCodeEquals() {
+        assertEquals(new Edge<>(1, 2).hashCode(), new Edge<>(1, 2).hashCode());
     }
 }

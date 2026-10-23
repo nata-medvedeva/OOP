@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Тесты для проверки работы матрицы инцидентности.
+ */
 class IncidenceMatrixGraphTest {
     @Test
     void addVertexTest() {
@@ -70,5 +73,49 @@ class IncidenceMatrixGraphTest {
 
         assertFalse(graph.containsEdge(1, 2));
         assertEquals(0, graph.edgeCount());
+    }
+
+    @Test
+    void removeVertexTest() {
+        Graph<Integer> g = new IncidenceMatrixGraph();
+        g.addVertex(1);
+        g.addVertex(2);
+        g.addVertex(3);
+        g.addEdge(1, 2);
+        g.addEdge(2, 3);
+
+        g.removeVertex(2);
+
+        assertEquals(2, g.vertexCount());
+        assertEquals(0, g.edgeCount());
+        assertFalse(g.containsVertex(2));
+        assertFalse(g.containsEdge(1, 2));
+        assertFalse(g.containsEdge(2, 3));
+    }
+
+    @Test
+    void removeUnknownVertexTest() {
+        Graph<Integer> g = new IncidenceMatrixGraph();
+        g.addVertex(1);
+        g.removeVertex(99);
+        assertEquals(1, g.vertexCount());
+    }
+
+    @Test
+    void noLoopsTest() {
+        Graph<Integer> g = new IncidenceMatrixGraph();
+        g.addVertex(1);
+        g.addEdge(1, 1);
+        assertEquals(0, g.edgeCount());
+    }
+
+    @Test
+    void toStringTest() {
+        Graph<Integer> g = new IncidenceMatrixGraph();
+        g.addVertex(1);
+        g.addVertex(2);
+        g.addEdge(1, 2);
+        assertTrue(g.toString().contains("1"));
+        assertTrue(g.toString().contains("2"));
     }
 }

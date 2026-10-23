@@ -2,20 +2,39 @@ package ru.nsu.nmedvedeva1.Task_1_2_1;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public class AdjacencyMatrixGraph extends AbstractGraph{
-    private final List<Integer> vertices;
+/**
+ * Граф, который хранится как матрица смежности.
+ * Если между вершинами есть ребро, в матрице стоит true.
+ *
+ * @param <T> тип вершины
+ */
+public class AdjacencyMatrixGraph<T> extends AbstractGraph<T> {
+    private final List<T> vertices;
     private boolean[][] matrix;
 
+    /**
+     * Создаём пустой граф.
+     */
     public AdjacencyMatrixGraph() {
         vertices = new ArrayList<>();
         matrix = new boolean[0][0];
     }
 
+    /**
+     * Добавляем вершину в граф.
+     *
+     * @param vertex вершина
+     */
     @Override
-    public void addVertex(int vertex) {
+    public void addVertex(T vertex) {
         if (vertices.contains(vertex)) {
             return;
+        }
+
+        if (vertex == null) {
+            throw new IllegalArgumentException("Vertex cannot be null");
         }
 
         int oldSize = vertices.size();
@@ -31,8 +50,13 @@ public class AdjacencyMatrixGraph extends AbstractGraph{
         matrix = newMatrix;
     }
 
+    /**
+     * Удаляем вершину и все рёбра, связанные с ней.
+     *
+     * @param vertex вершина
+     */
     @Override
-    public void removeVertex(int vertex) {
+    public void removeVertex(T vertex) {
         int index = vertices.indexOf(vertex);
         if (index == -1) {
             return;
@@ -60,9 +84,19 @@ public class AdjacencyMatrixGraph extends AbstractGraph{
         matrix = newMatrix;
     }
 
+    /**
+     * Добавляем ребро из одной вершины в другую.
+     *
+     * @param from начало ребра
+     * @param to конец ребра
+     */
     @Override
-    public void addEdge(int from, int to) {
+    public void addEdge(T from, T to) {
         if (!containsVertex(from) || !containsVertex(to)) {
+            return;
+        }
+
+        if (Objects.equals(from, to)) {
             return;
         }
 
@@ -75,8 +109,14 @@ public class AdjacencyMatrixGraph extends AbstractGraph{
         matrix[fromIndex][toIndex] = true;
     }
 
+    /**
+     * Удаляем ребро между вершинами.
+     *
+     * @param from начало ребра
+     * @param to конец ребра
+     */
     @Override
-    public void removeEdge(int from, int to) {
+    public void removeEdge(T from, T to) {
         int fromIndex = vertices.indexOf(from);
         int toIndex = vertices.indexOf(to);
         if (fromIndex == -1 || toIndex == -1) {
@@ -86,13 +126,26 @@ public class AdjacencyMatrixGraph extends AbstractGraph{
         matrix[fromIndex][toIndex] = false;
     }
 
+    /**
+     * Проверяет, есть ли вершина в графе.
+     *
+     * @param vertex вершина
+     * @return true, если вершина есть
+     */
     @Override
-    public boolean containsVertex(int vertex) {
+    public boolean containsVertex(T vertex) {
         return vertices.contains(vertex);
     }
 
+    /**
+     * Проверяет, есть ли ребро между вершинами.
+     *
+     * @param from начало ребра
+     * @param to конец ребра
+     * @return true, если ребро есть
+     */
     @Override
-    public boolean containsEdge(int from, int to) {
+    public boolean containsEdge(T from, T to) {
         int fromIndex = vertices.indexOf(from);
         int toIndex = vertices.indexOf(to);
         if (fromIndex == -1 || toIndex == -1) {
@@ -102,14 +155,25 @@ public class AdjacencyMatrixGraph extends AbstractGraph{
         return matrix[fromIndex][toIndex];
     }
 
+    /**
+     * Возвращает список всех вершин.
+     *
+     * @return копия списка вершин
+     */
     @Override
-    public List<Integer> getVertices() {
+    public List<T> getVertices() {
         return new ArrayList<>(vertices);
     }
 
+    /**
+     * Возвращает соседей вершины.
+     *
+     * @param vertex вершина
+     * @return список соседей
+     */
     @Override
-    public List<Integer> getNeighbours(int vertex) {
-        List<Integer> result = new ArrayList<>();
+    public List<T> getNeighbours(T vertex) {
+        List<T> result = new ArrayList<>();
         int row = vertices.indexOf(vertex);
 
         if (row == -1) {
@@ -124,19 +188,29 @@ public class AdjacencyMatrixGraph extends AbstractGraph{
         return result;
     }
 
+    /**
+     * Возвращает список всех рёбер.
+     *
+     * @return список рёбер
+     */
     @Override
-    public List<Edge> getEdges() {
-        List<Edge> result = new ArrayList<>();
+    public List<Edge<T>> getEdges() {
+        List<Edge<T>> result = new ArrayList<>();
         for (int i = 0; i < vertices.size(); i++) {
             for (int j = 0; j < vertices.size(); j++) {
                 if (matrix[i][j]){
-                    result.add(new Edge(vertices.get(i), vertices.get(j)));
+                    result.add(new Edge<>(vertices.get(i), vertices.get(j)));
                 }
             }
         }
         return result;
     }
 
+    /**
+     * Возвращает количество рёбер.
+     *
+     * @return число рёбер
+     */
     @Override
     public int edgeCount() {
         int counter = 0;
@@ -150,17 +224,28 @@ public class AdjacencyMatrixGraph extends AbstractGraph{
         return counter;
     }
 
+    /**
+     * Возвращает количество вершин.
+     *
+     * @return число вершин
+     */
     @Override
     public int vertexCount() {
         return vertices.size();
     }
 
+    /**
+     * Возвращает граф в виде строки.
+     * Первая строка — вершины, дальше строки матрицы из 0 и 1.
+     *
+     * @return строковое описание графа
+     */
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
         result.append("   ");
 
-        for (int vertex : vertices) {
+        for (T vertex : vertices) {
             result.append(vertex);
             result.append(" ");
         }

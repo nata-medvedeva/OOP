@@ -7,6 +7,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Тесты для проверки работы dfs.
+ */
 class DFSTest {
     private Graph createChain(Graph graph) {
         graph.addVertex(1);

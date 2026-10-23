@@ -2,27 +2,96 @@ package ru.nsu.nmedvedeva1.Task_1_2_1;
 
 import java.util.List;
 
-public interface Graph {
+/**
+ * Общий интерфейс графа.
+ * Граф хранит вершины и направленные рёбра между ними.
+ *
+ * @param <T> тип вершины
+ */
+public interface Graph<T> {
 
-    void addVertex(int vertex);
+    /**
+     * Добавляет вершину в граф.
+     * Если такая вершина уже есть, ничего не делает.
+     *
+     * @param vertex вершина
+     */
+    void addVertex(T vertex);
 
-    void removeVertex(int vertex);
+    /**
+     * Удаляет вершину и все рёбра, связанные с ней.
+     *
+     * @param vertex вершина
+     */
+    void removeVertex(T vertex);
 
-    void addEdge(int from, int to);
+    /**
+     * Добавляет ребро из одной вершины в другую.
+     * Если вершины не существуют или ребро уже есть, ничего не делает.
+     *
+     * @param from начало ребра
+     * @param to конец ребра
+     */
+    void addEdge(T from, T to);
 
-    void removeEdge(int from, int to);
+    /**
+     * Удаляет ребро между вершинами.
+     *
+     * @param from начало ребра
+     * @param to конец ребра
+     */
+    void removeEdge(T from, T to);
 
-    boolean containsVertex(int vertex);
+    /**
+     * Проверяет, есть ли вершина в графе.
+     *
+     * @param vertex вершина
+     * @return true, если вершина есть
+     */
+    boolean containsVertex(T vertex);
 
-    boolean containsEdge(int from, int to);
+    /**
+     * Проверяет, есть ли ребро между вершинами.
+     *
+     * @param from начало ребра
+     * @param to конец ребра
+     * @return true, если ребро есть
+     */
+    boolean containsEdge(T from, T to);
 
-    List<Integer> getVertices();
+    /**
+     * Возвращает список всех вершин.
+     *
+     * @return копия списка вершин
+     */
+    List<T> getVertices();
 
-    List<Integer> getNeighbours(int vertex);
+    /**
+     * Возвращает соседей вершины, т.е те, в которые идут рёбра из данной.
+     *
+     * @param vertex вершина
+     * @return список соседей
+     */
+    List<T> getNeighbours(T vertex);
 
-    List<Edge> getEdges();
+    /**
+     * Возвращает список всех рёбер.
+     *
+     * @return список рёбер
+     */
+    List<Edge<T>> getEdges();
 
+    /**
+     * Возвращает количество рёбер.
+     *
+     * @return число рёбер
+     */
     int edgeCount();
 
+    /**
+     * Возвращает количество вершин.
+     *
+     * @return число вершин
+     */
     int vertexCount();
 }
