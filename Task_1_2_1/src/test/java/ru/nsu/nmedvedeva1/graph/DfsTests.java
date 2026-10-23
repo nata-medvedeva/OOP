@@ -2,14 +2,15 @@ package ru.nsu.nmedvedeva1.Task_1_2_1;
 
 import java.util.List;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Тесты для проверки работы dfs.
  */
-class DfsTest {
+class DfsTests {
     private Graph createChain(Graph graph) {
         graph.addVertex(1);
         graph.addVertex(2);

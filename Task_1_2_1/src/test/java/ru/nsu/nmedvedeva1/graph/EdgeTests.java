@@ -1,14 +1,14 @@
 package ru.nsu.nmedvedeva1.Task_1_2_1;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Тесты для проверки работы ребра.
  */
-class EdgeTest {
+class EdgeTests {
     @Test
     void gettersTest() {
         Edge edge = new Edge(1, 2);
