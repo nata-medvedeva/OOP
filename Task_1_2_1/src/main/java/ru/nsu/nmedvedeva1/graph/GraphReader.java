@@ -1,4 +1,4 @@
-package ru.nsu.nmedvedeva1.Task_1_2_1;
+package ru.nsu.nmedvedeva1.graph;
 
 import java.io.File;
 import java.io.FileNotFoundException;

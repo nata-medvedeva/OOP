@@ -1,9 +1,9 @@
-package ru.nsu.nmedvedeva1.Task_1_2_1;
+package ru.nsu.nmedvedeva1.graph;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
