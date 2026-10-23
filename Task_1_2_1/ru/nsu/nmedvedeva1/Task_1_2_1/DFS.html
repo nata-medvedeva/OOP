@@ -67,20 +67,26 @@ loadScripts(document, 'script');</script>
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">ru.nsu.nmedvedeva1.Task_1_2_1</a></div>
-<h1 title="Class DFS" class="title">Class DFS</h1>
+<h1 title="Class DFS" class="title">Class DFS&lt;T&gt;</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance">ru.nsu.nmedvedeva1.Task_1_2_1.DFS</div>
+<div class="inheritance">ru.nsu.nmedvedeva1.Task_1_2_1.DFS&lt;T&gt;</div>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
+<dt>Type Parameters:</dt>
+<dd><code>T</code> - тип вершины</dd>
+</dl>
+<dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="TopologicalSort.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">TopologicalSort</a></code></dd>
+<dd><code><a href="TopologicalSort.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">TopologicalSort</a>&lt;T&gt;</code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">DFS</span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">DFS&lt;T&gt;</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="TopologicalSort.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">TopologicalSort</a></span></div>
+implements <a href="TopologicalSort.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">TopologicalSort</a>&lt;T&gt;</span></div>
+<div class="block">Топологическая сортировка через поиск в глубину.
+ Обходит граф и складывает вершины в обратном порядке.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -108,9 +114,11 @@ implements <a href="TopologicalSort.html" title="interface in ru.nsu.nmedvedeva1
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sort(ru.nsu.nmedvedeva1.Task_1_2_1.Graph)" class="member-name-link">sort</a><wbr>(<a href="Graph.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">Graph</a>&nbsp;graph)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="DFS.html" title="type parameter in DFS">T</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sort(ru.nsu.nmedvedeva1.Task_1_2_1.Graph)" class="member-name-link">sort</a><wbr>(<a href="Graph.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">Graph</a>&lt;<a href="DFS.html" title="type parameter in DFS">T</a>&gt;&nbsp;graph)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Сортирует вершины графа.</div>
+</div>
 </div>
 </div>
 </div>
@@ -145,10 +153,16 @@ implements <a href="TopologicalSort.html" title="interface in ru.nsu.nmedvedeva1
 <li>
 <section class="detail" id="sort(ru.nsu.nmedvedeva1.Task_1_2_1.Graph)">
 <h3>sort</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name">sort</span><wbr><span class="parameters">(<a href="Graph.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">Graph</a>&nbsp;graph)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="DFS.html" title="type parameter in DFS">T</a>&gt;</span>&nbsp;<span class="element-name">sort</span><wbr><span class="parameters">(<a href="Graph.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">Graph</a>&lt;<a href="DFS.html" title="type parameter in DFS">T</a>&gt;&nbsp;graph)</span></div>
+<div class="block">Сортирует вершины графа.
+ Если в графе есть цикл, бросает исключение.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="TopologicalSort.html#sort(ru.nsu.nmedvedeva1.Task_1_2_1.Graph)">sort</a></code>&nbsp;in interface&nbsp;<code><a href="TopologicalSort.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">TopologicalSort</a></code></dd>
+<dd><code><a href="TopologicalSort.html#sort(ru.nsu.nmedvedeva1.Task_1_2_1.Graph)">sort</a></code>&nbsp;in interface&nbsp;<code><a href="TopologicalSort.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">TopologicalSort</a>&lt;<a href="DFS.html" title="type parameter in DFS">T</a>&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>graph</code> - граф</dd>
+<dt>Returns:</dt>
+<dd>список вершин в топологическом порядке</dd>
 </dl>
 </section>
 </li>

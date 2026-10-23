@@ -67,24 +67,30 @@ loadScripts(document, 'script');</script>
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">ru.nsu.nmedvedeva1.Task_1_2_1</a></div>
-<h1 title="Class AbstractGraph" class="title">Class AbstractGraph</h1>
+<h1 title="Class AbstractGraph" class="title">Class AbstractGraph&lt;T&gt;</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance">ru.nsu.nmedvedeva1.Task_1_2_1.AbstractGraph</div>
+<div class="inheritance">ru.nsu.nmedvedeva1.Task_1_2_1.AbstractGraph&lt;T&gt;</div>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
+<dt>Type Parameters:</dt>
+<dd><code>T</code> - тип вершины</dd>
+</dl>
+<dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="Graph.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">Graph</a></code></dd>
+<dd><code><a href="Graph.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">Graph</a>&lt;T&gt;</code></dd>
 </dl>
 <dl class="notes">
 <dt>Direct Known Subclasses:</dt>
 <dd><code><a href="AdjacencyListGraph.html" title="class in ru.nsu.nmedvedeva1.Task_1_2_1">AdjacencyListGraph</a></code>, <code><a href="AdjacencyMatrixGraph.html" title="class in ru.nsu.nmedvedeva1.Task_1_2_1">AdjacencyMatrixGraph</a></code>, <code><a href="IncidenceMatrixGraph.html" title="class in ru.nsu.nmedvedeva1.Task_1_2_1">IncidenceMatrixGraph</a></code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">AbstractGraph</span>
+<div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">AbstractGraph&lt;T&gt;</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="Graph.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">Graph</a></span></div>
+implements <a href="Graph.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">Graph</a>&lt;T&gt;</span></div>
+<div class="block">Абстрактный класс для всех реализаций графа.
+ Здесь описаны сравнение графов и хеш-кодов.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -114,16 +120,23 @@ implements <a href="Graph.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Сравнивает два графа.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Считает хеш-код графа.</div>
+</div>
 </div>
 </div>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
-<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-ru.nsu.nmedvedeva1.Task_1_2_1.Graph">Methods inherited from interface&nbsp;ru.nsu.nmedvedeva1.Task_1_2_1.<a href="Graph.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">Graph</a></h3>
-<code><a href="Graph.html#addEdge(int,int)">addEdge</a>, <a href="Graph.html#addVertex(int)">addVertex</a>, <a href="Graph.html#containsEdge(int,int)">containsEdge</a>, <a href="Graph.html#containsVertex(int)">containsVertex</a>, <a href="Graph.html#edgeCount()">edgeCount</a>, <a href="Graph.html#getEdges()">getEdges</a>, <a href="Graph.html#getNeighbours(int)">getNeighbours</a>, <a href="Graph.html#getVertices()">getVertices</a>, <a href="Graph.html#removeEdge(int,int)">removeEdge</a>, <a href="Graph.html#removeVertex(int)">removeVertex</a>, <a href="Graph.html#vertexCount()">vertexCount</a></code></div>
+<code><a href="Graph.html#addEdge(T,T)">addEdge</a>, <a href="Graph.html#addVertex(T)">addVertex</a>, <a href="Graph.html#containsEdge(T,T)">containsEdge</a>, <a href="Graph.html#containsVertex(T)">containsVertex</a>, <a href="Graph.html#edgeCount()">edgeCount</a>, <a href="Graph.html#getEdges()">getEdges</a>, <a href="Graph.html#getNeighbours(T)">getNeighbours</a>, <a href="Graph.html#getVertices()">getVertices</a>, <a href="Graph.html#removeEdge(T,T)">removeEdge</a>, <a href="Graph.html#removeVertex(T)">removeVertex</a>, <a href="Graph.html#vertexCount()">vertexCount</a></code></div>
 </section>
 </li>
 </ul>
@@ -153,9 +166,29 @@ implements <a href="Graph.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_
 <section class="detail" id="equals(java.lang.Object)">
 <h3>equals</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</span></div>
+<div class="block">Сравнивает два графа.
+ Должно быть одинаковое число вершин и рёбер и совпадать сами вершины и рёбра.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>obj</code> - объект для сравнения</dd>
+<dt>Returns:</dt>
+<dd>true, если графы равны</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="hashCode()">
+<h3>hashCode</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">hashCode</span>()</div>
+<div class="block">Считает хеш-код графа.
+ Суммирует хеши всех вершин и рёбер.</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
+<dt>Returns:</dt>
+<dd>хеш-код</dd>
 </dl>
 </section>
 </li>
