@@ -5,7 +5,7 @@
 <title>IncidenceMatrixGraph (Task_1_2_1 1.0-SNAPSHOT API)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="declaration: package: ru.nsu.nmedvedeva1.Task_1_2_1, class: IncidenceMatrixGraph">
+<meta name="description" content="declaration: package: ru.nsu.nmedvedeva1.graph, class: IncidenceMatrixGraph">
 <meta name="generator" content="javadoc/ClassWriterImpl">
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../script-dir/jquery-ui.min.css" title="Style">
@@ -66,12 +66,12 @@ loadScripts(document, 'script');</script>
 <main role="main">
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">ru.nsu.nmedvedeva1.Task_1_2_1</a></div>
+<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">ru.nsu.nmedvedeva1.graph</a></div>
 <h1 title="Class IncidenceMatrixGraph" class="title">Class IncidenceMatrixGraph&lt;T&gt;</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance"><a href="AbstractGraph.html" title="class in ru.nsu.nmedvedeva1.Task_1_2_1">ru.nsu.nmedvedeva1.Task_1_2_1.AbstractGraph</a>&lt;T&gt;
-<div class="inheritance">ru.nsu.nmedvedeva1.Task_1_2_1.IncidenceMatrixGraph&lt;T&gt;</div>
+<div class="inheritance"><a href="AbstractGraph.html" title="class in ru.nsu.nmedvedeva1.graph">ru.nsu.nmedvedeva1.graph.AbstractGraph</a>&lt;T&gt;
+<div class="inheritance">ru.nsu.nmedvedeva1.graph.IncidenceMatrixGraph&lt;T&gt;</div>
 </div>
 </div>
 <section class="class-description" id="class-description">
@@ -81,11 +81,11 @@ loadScripts(document, 'script');</script>
 </dl>
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="Graph.html" title="interface in ru.nsu.nmedvedeva1.Task_1_2_1">Graph</a>&lt;T&gt;</code></dd>
+<dd><code><a href="Graph.html" title="interface in ru.nsu.nmedvedeva1.graph">Graph</a>&lt;T&gt;</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">IncidenceMatrixGraph&lt;T&gt;</span>
-<span class="extends-implements">extends <a href="AbstractGraph.html" title="class in ru.nsu.nmedvedeva1.Task_1_2_1">AbstractGraph</a>&lt;T&gt;</span></div>
+<span class="extends-implements">extends <a href="AbstractGraph.html" title="class in ru.nsu.nmedvedeva1.graph">AbstractGraph</a>&lt;T&gt;</span></div>
 <div class="block">Граф, который хранится как матрица инцидентности.
  Строки — вершины, столбцы — рёбра.
  -1 значит «ребро выходит из вершины», 1 значит «ребро входит в вершину».</div>
@@ -145,7 +145,7 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Возвращает количество рёбер.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Edge.html" title="class in ru.nsu.nmedvedeva1.Task_1_2_1">Edge</a>&lt;<a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">T</a>&gt;&gt;</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Edge.html" title="class in ru.nsu.nmedvedeva1.graph">Edge</a>&lt;<a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">T</a>&gt;&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEdges()" class="member-name-link">getEdges</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Возвращает список всех рёбер.</div>
@@ -185,7 +185,7 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <div class="inherited-list">
-<h3 id="methods-inherited-from-class-ru.nsu.nmedvedeva1.Task_1_2_1.AbstractGraph">Methods inherited from class&nbsp;ru.nsu.nmedvedeva1.Task_1_2_1.<a href="AbstractGraph.html" title="class in ru.nsu.nmedvedeva1.Task_1_2_1">AbstractGraph</a></h3>
+<h3 id="methods-inherited-from-class-ru.nsu.nmedvedeva1.graph.AbstractGraph">Methods inherited from class&nbsp;ru.nsu.nmedvedeva1.graph.<a href="AbstractGraph.html" title="class in ru.nsu.nmedvedeva1.graph">AbstractGraph</a></h3>
 <code><a href="AbstractGraph.html#equals(java.lang.Object)">equals</a>, <a href="AbstractGraph.html#hashCode()">hashCode</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
@@ -319,7 +319,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getEdges()">
 <h3>getEdges</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Edge.html" title="class in ru.nsu.nmedvedeva1.Task_1_2_1">Edge</a>&lt;<a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">T</a>&gt;&gt;</span>&nbsp;<span class="element-name">getEdges</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Edge.html" title="class in ru.nsu.nmedvedeva1.graph">Edge</a>&lt;<a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">T</a>&gt;&gt;</span>&nbsp;<span class="element-name">getEdges</span>()</div>
 <div class="block">Возвращает список всех рёбер.</div>
 <dl class="notes">
 <dt>Returns:</dt>
