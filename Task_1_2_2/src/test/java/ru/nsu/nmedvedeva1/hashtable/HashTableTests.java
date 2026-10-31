@@ -1,12 +1,11 @@
 package ru.nsu.nmedvedeva1.hashtable;
 
-import java.util.HashSet;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
-
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -14,6 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
 
 class HashTableTests {
 
@@ -239,5 +240,33 @@ class HashTableTests {
         assertFalse(iterator.hasNext());
 
         assertThrows(NoSuchElementException.class, iterator::next);
+    }
+
+    @Test
+    void concurrentModificationExceptionTest() {
+        HashTable<String, Integer> table = new HashTable<>();
+        table.put("A", 10);
+        table.put("B", 20);
+        table.put("C", 30);
+
+        Iterator<Map.Entry<String, Integer>> iterator = table.iterator();
+
+        assertTrue(iterator.hasNext());
+
+        table.put("D", 40);
+
+        assertThrows(ConcurrentModificationException.class, iterator::hasNext);
+        assertThrows(ConcurrentModificationException.class, iterator::next);
+
+        HashTable<String, Integer> table2 = new HashTable<>();
+        table2.put("A", 10);
+
+        Iterator<Map.Entry<String, Integer>> iterator2 = table2.iterator();
+        assertTrue(iterator2.hasNext());
+
+        assertTrue(table2.remove("A", 10));
+
+        assertThrows(ConcurrentModificationException.class, iterator2::hasNext);
+        assertThrows(ConcurrentModificationException.class, iterator2::next);
     }
 }
