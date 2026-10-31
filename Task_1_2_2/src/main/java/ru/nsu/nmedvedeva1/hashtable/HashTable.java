@@ -84,13 +84,13 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
         Objects.requireNonNull(key, "Key cannot be null");
         Objects.requireNonNull(value, "Value cannot be null");
 
-        int lHash = hash(key);
-        int lIndex = indexF(key, capacityOfTable);
+        int lhash = hash(key);
+        int lindex = indexF(key, capacityOfTable);
 
-        Node<K, V> current = table[lIndex];
+        Node<K, V> current = table[lindex];
 
         while (current != null) {
-            if (current.hash == lHash && Objects.equals(current.key, key)) {
+            if (current.hash == lhash && Objects.equals(current.key, key)) {
                 current.value = value;
                 return;
             }
@@ -98,7 +98,7 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
             current = current.next;
         }
 
-        table[lIndex] = new Node<>(lHash, key, value, table[lIndex]);
+        table[lindex] = new Node<>(lhash, key, value, table[lindex]);
         nodeCounter++;
         modCount++;
 
@@ -116,9 +116,9 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
     public V get(K key) {
         Objects.requireNonNull(key, "Key cannot be null");
 
-        int lIndex = indexF(key, capacityOfTable);
+        int lindex = indexF(key, capacityOfTable);
 
-        Node<K, V> current = table[lIndex];
+        Node<K, V> current = table[lindex];
 
         while (current != null) {
             if (Objects.equals(current.key, key)) {
@@ -142,15 +142,15 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
         Objects.requireNonNull(key, "Key cannot be null");
         Objects.requireNonNull(value, "Value cannot be null");
 
-        int lIndex = indexF(key, capacityOfTable);
+        int lindex = indexF(key, capacityOfTable);
 
         Node<K, V> previous = null;
-        Node<K, V> current = table[lIndex];
+        Node<K, V> current = table[lindex];
 
         while (current != null) {
             if (Objects.equals(current.key, key) && Objects.equals(current.value, value)) {
                 if (previous == null) {
-                    table[lIndex] = current.next;
+                    table[lindex] = current.next;
                 } else {
                     previous.next = current.next;
                 }
@@ -175,9 +175,9 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
     public boolean containsKey(K key) {
         Objects.requireNonNull(key, "Key cannot be null");
 
-        int lIndex = indexF(key, capacityOfTable);
+        int lindex = indexF(key, capacityOfTable);
 
-        Node<K, V> current = table[lIndex];
+        Node<K, V> current = table[lindex];
 
         while (current != null) {
             if (Objects.equals(current.key, key)) {
@@ -202,9 +202,9 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
         Objects.requireNonNull(key, "Key cannot be null");
         Objects.requireNonNull(newValue, "Value cannot be null");
 
-        int lIndex = indexF(key, capacityOfTable);
+        int lindex = indexF(key, capacityOfTable);
 
-        Node<K, V> current = table[lIndex];
+        Node<K, V> current = table[lindex];
 
         while (current != null) {
             if (Objects.equals(current.key, key)) {
@@ -256,7 +256,7 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
         //Если переданный объект не является хеш-таблицей, возвращаем false.
         //Если является — создаём переменную other,
         //через которую можем обращаться к нему как к таблице.
-        if (!(obj instanceof HashTable<?,?> other)) {
+        if (!(obj instanceof HashTable<?, ?> other)) {
             return false;
         }
 
@@ -269,14 +269,14 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
 
             while (current != null) {
                 K key = current.key;
-                int lHash = hash(key);
-                int lIndex = indexF(key, other.capacityOfTable);
+                int lhash = hash(key);
+                int lindex = indexF(key, other.capacityOfTable);
 
-                Node<?, ?> otherCurrent = other.table[lIndex];
+                Node<?, ?> otherCurrent = other.table[lindex];
 
                 boolean flagFound = false;
                 while (otherCurrent != null) {
-                    if (otherCurrent.hash == lHash && Objects.equals(otherCurrent.key, key)) {
+                    if (otherCurrent.hash == lhash && Objects.equals(otherCurrent.key, key)) {
                         if (! Objects.equals(current.value, otherCurrent.value)) {
                             return false;
                         }
@@ -333,7 +333,7 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
      * @return хеш-код
      */
     @Override
-    public int hashCode(){
+    public int hashCode() {
         int result = 0;
 
         for (int i = 0; i < capacityOfTable; i++) {
