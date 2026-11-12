@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.nmedvedeva1.strings","l":"Main"},{"p":"ru.nsu.nmedvedeva1.strings","l":"ReadingString"}];updateSearchResults();
