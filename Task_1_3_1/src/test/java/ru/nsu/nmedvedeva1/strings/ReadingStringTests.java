@@ -1,7 +1,8 @@
 package ru.nsu.nmedvedeva1.strings;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.IOException;
 import java.io.BufferedWriter;
@@ -9,8 +10,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 /**
  * Проверяет корректность поиска подстрок, обработку границ блоков, больших файлов и исключений.
@@ -99,7 +100,8 @@ class ReadingStringTests {
     @Test
     void testMatchesInSeveralBlocks() throws IOException {
         int blockSize = 8 * 1024;
-        String content = "бра" + "а".repeat(blockSize - 3) + "бра" + "а".repeat(blockSize - 3) + "бра";
+        String content = "бра" + "а".repeat(blockSize - 3) + "бра"
+                + "а".repeat(blockSize - 3) + "бра";
         Path file = createFile(content);
 
         assertEquals(List.of(0L, 8192L, 16384L), find(file, "бра"));

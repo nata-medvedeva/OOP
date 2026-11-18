@@ -39,7 +39,8 @@ public class ReadingString {
             throw new IllegalArgumentException("Искомая строка пустая");
         }
 
-        try (Reader r = new BufferedReader(new InputStreamReader(new FileInputStream(filename), StandardCharsets.UTF_8))) {
+        try (Reader r = new BufferedReader(new InputStreamReader
+                (new FileInputStream(filename), StandardCharsets.UTF_8))) {
 
             int n;
             int bufSize = 8 * 1024;
@@ -76,7 +77,7 @@ public class ReadingString {
      * @param str искомая подстрока
      * @param start индекс начала объединённого блока в файле
      */
-    private void workingWithString (StringBuilder line, String str, long start) {
+    private void workingWithString(StringBuilder line, String str, long start) {
         int idx = line.indexOf(str, 0);
         while (idx != -1) {
             res.add(start + idx);
