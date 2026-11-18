@@ -9,18 +9,34 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Ищем подстроку в UTF-8 файле, используя блочное чтение.
+ * */
 public class ReadingString {
+    /**
+     * Количество уже прочитанных символов.
+     * */
+    private long offset;
+    /**
+     * Список индексов найденных вхождений.
+     * */
+    private final List<Long> res = new ArrayList<>();
 
-    long offset;
-    private List<Long> res = new ArrayList<>();
-
-    public void reading(String filename, String str) {
+    /**
+     * Находит все вхождения подстроки в файле.
+     *
+     * @param filename путь к входному файлу
+     * @param str искомая подстрока
+     * @return список индексов начала вхождений
+     * @throws IOException при ошибке чтения файла
+     * @throws IllegalArgumentException если подстрока пустая или null
+     */
+    public List<Long> reading(String filename, String str) throws IOException {
         res.clear();
         offset = 0;
 
         if (str == null || str.isEmpty()) {
-            System.err.println("Искомая строка пустая");
-            return;
+            throw new IllegalArgumentException("Искомая строка пустая");
         }
 
         try (Reader r = new BufferedReader(new InputStreamReader(new FileInputStream(filename), StandardCharsets.UTF_8))) {
@@ -49,36 +65,23 @@ public class ReadingString {
                 tailLen = Math.min(chunk.length(), str.length() - 1);
                 chunk.getChars(chunk.length() - tailLen, chunk.length(), tail, 0);
             }
-        } catch (IOException e) {
-            System.err.println("Ошибка чтения файла: " + e.getMessage());
-            return;
         }
-        printResult();
+        return new ArrayList<>(res);
     }
 
-    public void workingWithString (StringBuilder line, String str, long start) {
+    /**
+     * Выполняет поиск подстроки в текущем блоке и добавляет индексы в результат.
+     *
+     * @param line текущий блок с хвостом предыдущего блока
+     * @param str искомая подстрока
+     * @param start индекс начала объединённого блока в файле
+     */
+    private void workingWithString (StringBuilder line, String str, long start) {
         int idx = line.indexOf(str, 0);
         while (idx != -1) {
             res.add(start + idx);
 
             idx = line.indexOf(str, idx + 1);
         }
-    }
-
-    public void printResult () {
-        if (res.isEmpty()) {
-            System.out.println("[]");
-            return;
-        }
-
-        StringBuilder s = new StringBuilder("[");
-
-        int i = 0;
-        s.append(res.get(i));
-        for (i = 1; i < res.size(); i++) {
-            s.append( ", " + res.get(i));
-        }
-        s.append("]");
-        System.out.println(s);
     }
 }
