@@ -13,14 +13,6 @@ import java.util.List;
  * Ищем подстроку в UTF-8 файле, используя блочное чтение.
  * */
 public class ReadingString {
-    /**
-     * Количество уже прочитанных символов.
-     * */
-    private long offset;
-    /**
-     * Список индексов найденных вхождений.
-     * */
-    private final List<Long> res = new ArrayList<>();
 
     /**
      * Находит все вхождения подстроки в файле.
@@ -32,8 +24,8 @@ public class ReadingString {
      * @throws IllegalArgumentException если подстрока пустая или null
      */
     public List<Long> reading(String filename, String str) throws IOException {
-        res.clear();
-        offset = 0;
+        List<Long> res = new ArrayList<>();
+        long offset = 0;
 
         if (str == null || str.isEmpty()) {
             throw new IllegalArgumentException("Искомая строка пустая");
@@ -60,14 +52,14 @@ public class ReadingString {
                 long start = offset - tailLen;
                 chunk.append(tail, 0, tailLen);
                 chunk.append(buf, 0, n);
-                workingWithString(chunk, str, start);
+                workingWithString(chunk, str, start, res);
                 offset += n;
 
                 tailLen = Math.min(chunk.length(), str.length() - 1);
                 chunk.getChars(chunk.length() - tailLen, chunk.length(), tail, 0);
             }
         }
-        return new ArrayList<>(res);
+        return res;
     }
 
     /**
@@ -76,8 +68,9 @@ public class ReadingString {
      * @param line текущий блок с хвостом предыдущего блока
      * @param str искомая подстрока
      * @param start индекс начала объединённого блока в файле
+     * @param res список найденных индексов
      */
-    private void workingWithString(StringBuilder line, String str, long start) {
+    private void workingWithString(StringBuilder line, String str, long start, List<Long> res) {
         int idx = line.indexOf(str, 0);
         while (idx != -1) {
             res.add(start + idx);
