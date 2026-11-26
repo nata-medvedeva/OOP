@@ -1,5 +1,8 @@
 package ru.nsu.nmedvedeva1.book;
 
+/**
+ * Набор констант для типов контроля.
+ * */
 public enum ControlType {
     Экзамен,
     Дифференцированный_зачет,

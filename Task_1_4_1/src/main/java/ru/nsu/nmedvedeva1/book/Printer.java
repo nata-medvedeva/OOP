@@ -2,7 +2,15 @@ package ru.nsu.nmedvedeva1.book;
 
 import java.util.OptionalDouble;
 
+/**
+ * Вывод итогового текста в консоль для пользователя, вычисление 4 функций.
+ * */
 public class Printer {
+    /**
+     * Выводит в консоль.
+     *
+     * @param book зачетная книга
+     * */
     public void printBook(RecordBook book) {
         if (book.possibilityToMove()) {
             System.out.println("Вы можете перевестись на бесплатную форму обучения.");

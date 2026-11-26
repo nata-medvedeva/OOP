@@ -2,10 +2,15 @@ package ru.nsu.nmedvedeva1.book;
 
 import java.util.Scanner;
 
+/**
+ * Точка входа в программу.
+ * */
 public class Main {
+    /**
+     * Вывод общей информации, формирование зачетной книги и вызов метода, который напечатает результат.
+     * */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Printer printer = new Printer();
 
         System.out.println("Введите форму обучения (1 - Бюджетная, 2 - Платная): ");
         int t = scanner.nextInt();
@@ -30,19 +35,22 @@ public class Main {
                 break;
             }
 
-            System.out.println("Введите номер типа контроля: ");
-            int typeChoice = scanner.nextInt();
-            ControlType type = types[typeChoice - 1];
-
             System.out.println("Введите оценку (2-5, 0 для зачёта): ");
             int value = scanner.nextInt();
 
             System.out.println("Введите номер семестра, когда оценка была получена: ");
             int gradeSemester = scanner.nextInt();
+
+            System.out.println("Введите номер типа контроля: ");
+            int typeChoice = scanner.nextInt();
+            ControlType type = types[typeChoice - 1];
+
             scanner.nextLine();
 
             book.addGrade(new Grade(type, value, gradeSemester));
         }
+
+        Printer printer = new Printer();
 
         printer.printBook(book);
         scanner.close();

@@ -1,9 +1,11 @@
 package ru.nsu.nmedvedeva1.book;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+/**
+ * Тест для структуры оценки.
+ * */
 class GradeTests {
 
     @Test
