@@ -86,6 +86,10 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">RecordBook</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Зачетная книжка студента.
+Хранит оценки, текущий семестр и форму обучения.
+Позволяет вычислять средний балл, возможность перевода на бюджет,
+получения красного диплома и повышенной стипендии.</div>
 </div>
 </section>
 <section class="summary">
@@ -100,7 +104,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,ru.nsu.nmedvedeva1.book.StudyForm)" class="member-name-link">RecordBook</a><wbr>(int&nbsp;semester,
  <a href="StudyForm.html" title="enum class in ru.nsu.nmedvedeva1.book">StudyForm</a>&nbsp;formOfStudying)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Конструктор зачетной книги.</div>
+</div>
 </div>
 </section>
 </li>
@@ -117,25 +123,40 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addGrade(ru.nsu.nmedvedeva1.book.Grade)" class="member-name-link">addGrade</a><wbr>(<a href="Grade.html" title="class in ru.nsu.nmedvedeva1.book">Grade</a>&nbsp;grade)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Добавляет оценку в зачетную книжку.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/OptionalDouble.html" title="class or interface in java.util" class="external-link">OptionalDouble</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#averageGrade()" class="member-name-link">averageGrade</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Вычисляет средний балл за все время обучения, не учитывая обычные зачеты.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="StudyForm.html" title="enum class in ru.nsu.nmedvedeva1.book">StudyForm</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFormOfStudying()" class="member-name-link">getFormOfStudying</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Возвращает текущую форму обучения студента.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSemester()" class="member-name-link">getSemester</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Возвращает текущий семестр обучения.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#possibilityToGetRedDiploma()" class="member-name-link">possibilityToGetRedDiploma</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Проверяет возможность получения диплома с отличием на текущем этапе обучения.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#possibilityToHaveBigScholarship()" class="member-name-link">possibilityToHaveBigScholarship</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Проверяет возможность получения повышенной стипендии
+в текущем семестре по результатам предыдущего семестра.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#possibilityToMove()" class="member-name-link">possibilityToMove</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Проверяет возможность перевода с платной формы обучения на бюджетную.</div>
+</div>
 </div>
 </div>
 </div>
@@ -159,6 +180,12 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">RecordBook</span><wbr><span class="parameters">(int&nbsp;semester,
  <a href="StudyForm.html" title="enum class in ru.nsu.nmedvedeva1.book">StudyForm</a>&nbsp;formOfStudying)</span></div>
+<div class="block">Конструктор зачетной книги.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>semester</code> - текущий семестр обучения</dd>
+<dd><code>formOfStudying</code> - форма обучения студента</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -175,6 +202,11 @@ loadScripts(document, 'script');</script>
 <h3>averageGrade</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/OptionalDouble.html" title="class or interface in java.util" class="external-link">OptionalDouble</a></span>&nbsp;<span class="element-name">averageGrade</span>()</div>
+<div class="block">Вычисляет средний балл за все время обучения, не учитывая обычные зачеты.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>средний балл или пустой OptionalDouble при отсутствии числовых оценок</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -183,6 +215,12 @@ loadScripts(document, 'script');</script>
 <h3>possibilityToMove</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">possibilityToMove</span>()</div>
+<div class="block">Проверяет возможность перевода с платной формы обучения на бюджетную.
+Учитывает отсутствие 3 и 2 за экзамены в двух последних семестрах с экзаменами.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true, если перевод возможен, иначе false</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -191,6 +229,12 @@ loadScripts(document, 'script');</script>
 <h3>possibilityToGetRedDiploma</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">possibilityToGetRedDiploma</span>()</div>
+<div class="block">Проверяет возможность получения диплома с отличием на текущем этапе обучения.
+Учитывает отсутствие 2 и 3 в итоговых оценках.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true, если текущие оценки удовлетворяют условиям, иначе false</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -199,6 +243,13 @@ loadScripts(document, 'script');</script>
 <h3>possibilityToHaveBigScholarship</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">possibilityToHaveBigScholarship</span>()</div>
+<div class="block">Проверяет возможность получения повышенной стипендии
+в текущем семестре по результатам предыдущего семестра.
+Проверяет наличие оценок и отсутствие оценок 2, 3 и 4.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true, если получение повышенной стипендии возможно, иначе false</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -207,6 +258,11 @@ loadScripts(document, 'script');</script>
 <h3>addGrade</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addGrade</span><wbr><span class="parameters">(<a href="Grade.html" title="class in ru.nsu.nmedvedeva1.book">Grade</a>&nbsp;grade)</span></div>
+<div class="block">Добавляет оценку в зачетную книжку.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>grade</code> - добавляемая оценка</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -215,6 +271,11 @@ loadScripts(document, 'script');</script>
 <h3>getSemester</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getSemester</span>()</div>
+<div class="block">Возвращает текущий семестр обучения.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>номер текущего семестра</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -223,6 +284,11 @@ loadScripts(document, 'script');</script>
 <h3>getFormOfStudying</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="StudyForm.html" title="enum class in ru.nsu.nmedvedeva1.book">StudyForm</a></span>&nbsp;<span class="element-name">getFormOfStudying</span>()</div>
+<div class="block">Возвращает текущую форму обучения студента.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>форма обучения</dd>
+</dl>
 </div>
 </section>
 </li>

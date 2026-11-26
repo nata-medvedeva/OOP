@@ -82,6 +82,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Grade</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Класс для структуры оценки: тип, в каком семестре получена и сама оценка.</div>
 </div>
 </section>
 <section class="summary">
@@ -97,7 +98,9 @@ loadScripts(document, 'script');</script>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(ru.nsu.nmedvedeva1.book.ControlType,int,int)" class="member-name-link">Grade</a><wbr>(<a href="ControlType.html" title="enum class in ru.nsu.nmedvedeva1.book">ControlType</a>&nbsp;controlType,
  int&nbsp;value,
  int&nbsp;semester)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Конструктор для оценки.</div>
+</div>
 </div>
 </section>
 </li>
@@ -114,13 +117,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ControlType.html" title="enum class in ru.nsu.nmedvedeva1.book">ControlType</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getControlType()" class="member-name-link">getControlType</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Метод для получения типа оценки.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSemester()" class="member-name-link">getSemester</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Метод для получения семестра, когда оценка была получена.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValue()" class="member-name-link">getValue</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Метод для получения оценки (числа).</div>
+</div>
 </div>
 </div>
 </div>
@@ -145,6 +154,13 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Grade</span><wbr><span class="parameters">(<a href="ControlType.html" title="enum class in ru.nsu.nmedvedeva1.book">ControlType</a>&nbsp;controlType,
  int&nbsp;value,
  int&nbsp;semester)</span></div>
+<div class="block">Конструктор для оценки.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>controlType</code> - тип оценки</dd>
+<dd><code>value</code> - значение оценки</dd>
+<dd><code>semester</code> - семестр, когда она получена</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -161,6 +177,11 @@ loadScripts(document, 'script');</script>
 <h3>getValue</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getValue</span>()</div>
+<div class="block">Метод для получения оценки (числа).</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>оценка</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -169,6 +190,11 @@ loadScripts(document, 'script');</script>
 <h3>getSemester</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getSemester</span>()</div>
+<div class="block">Метод для получения семестра, когда оценка была получена.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>номер семестра</dd>
+</dl>
 </div>
 </section>
 </li>
@@ -177,6 +203,11 @@ loadScripts(document, 'script');</script>
 <h3>getControlType</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ControlType.html" title="enum class in ru.nsu.nmedvedeva1.book">ControlType</a></span>&nbsp;<span class="element-name">getControlType</span>()</div>
+<div class="block">Метод для получения типа оценки.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>тип оценки</dd>
+</dl>
 </div>
 </section>
 </li>
