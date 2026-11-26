@@ -80,9 +80,11 @@ public class RecordBook {
     public boolean possibilityToGetRedDiploma() {
         boolean flag1 = grades.stream().filter(g -> g.controlType == ControlType.Экзамен)
                 .noneMatch(g -> g.getValue() == 2 || g.getValue() == 3)
-                && grades.stream().filter(g -> g.controlType == ControlType.Дифференцированный_зачет)
+                && grades.stream()
+                .filter(g -> g.controlType == ControlType.Дифференцированный_зачет)
                 .noneMatch(g -> g.getValue() == 2 || g.getValue() == 3);
-        boolean flag2 = grades.stream().filter(g -> g.controlType == ControlType.Квалификационная_работа)
+        boolean flag2 = grades.stream()
+                .filter(g -> g.controlType == ControlType.Квалификационная_работа)
                 .allMatch(g -> g.getValue() == 5);
 
         OptionalDouble avgForExams = grades.stream()

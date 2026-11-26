@@ -7,7 +7,8 @@ import java.util.Scanner;
  * */
 public class Main {
     /**
-     * Вывод общей информации, формирование зачетной книги и вызов метода, который напечатает результат.
+     * Вывод общей информации, формирование зачетной книги и
+     * вызов метода, который напечатает результат.
      * */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -36,14 +37,14 @@ public class Main {
             }
 
             System.out.println("Введите оценку (2-5, 0 для зачёта): ");
-            int value = scanner.nextInt();
+            final int value = scanner.nextInt();
 
             System.out.println("Введите номер семестра, когда оценка была получена: ");
-            int gradeSemester = scanner.nextInt();
+            final int gradeSemester = scanner.nextInt();
 
             System.out.println("Введите номер типа контроля: ");
             int typeChoice = scanner.nextInt();
-            ControlType type = types[typeChoice - 1];
+            final ControlType type = types[typeChoice - 1];
 
             scanner.nextLine();
 

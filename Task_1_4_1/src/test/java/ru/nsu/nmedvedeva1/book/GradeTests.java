@@ -1,6 +1,7 @@
 package ru.nsu.nmedvedeva1.book;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 /**
