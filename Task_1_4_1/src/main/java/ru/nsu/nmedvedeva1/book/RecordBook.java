@@ -26,8 +26,8 @@ public class RecordBook {
      */
     public RecordBook(int semester, StudyForm formOfStudying, int totalGrades) {
         if (totalGrades <= 0) {
-            throw new IllegalArgumentException("Количество итоговых оценок " +
-                    "должно быть положительным.");
+            throw new IllegalArgumentException("Количество итоговых оценок "
+                    + "должно быть положительным.");
         }
 
         if (semester <= 0) {
