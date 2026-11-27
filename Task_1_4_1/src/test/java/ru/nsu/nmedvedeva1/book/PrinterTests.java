@@ -35,10 +35,10 @@ class PrinterTests {
 
     @Test
     void positiveOutput() {
-        RecordBook book = new RecordBook(3, StudyForm.Платная);
+        RecordBook book = new RecordBook(3, StudyForm.Contract_based, 35);
 
-        book.addGrade(new Grade(ControlType.Экзамен, 5, 1));
-        book.addGrade(new Grade(ControlType.Экзамен, 5, 2));
+        book.addGrade(new Grade(ControlType.Exam, 5, 1));
+        book.addGrade(new Grade(ControlType.Exam, 5, 2));
 
         printer.printBook(book);
 
@@ -52,10 +52,10 @@ class PrinterTests {
 
     @Test
     void negativeOutput() {
-        RecordBook book = new RecordBook(3, StudyForm.Платная);
+        RecordBook book = new RecordBook(3, StudyForm.Contract_based, 35);
 
-        book.addGrade(new Grade(ControlType.Экзамен, 3, 1));
-        book.addGrade(new Grade(ControlType.Экзамен, 4, 2));
+        book.addGrade(new Grade(ControlType.Exam, 3, 1));
+        book.addGrade(new Grade(ControlType.Exam, 4, 2));
 
         printer.printBook(book);
 
@@ -69,14 +69,14 @@ class PrinterTests {
 
     @Test
     void emptyOutput() {
-        RecordBook book = new RecordBook(1, StudyForm.Платная);
+        RecordBook book = new RecordBook(1, StudyForm.Contract_based, 35);
 
         printer.printBook(book);
 
         String result = output.toString(StandardCharsets.UTF_8);
 
         assertTrue(result.contains("Вы не можете перевестись на бесплатную форму обучения."));
-        assertTrue(result.contains("Вы не можете получить красный диплом."));
+        assertTrue(result.contains("Вы можете получить красный диплом."));
         assertTrue(result.contains("Вы не можете получить повышенную стипендию."));
         assertTrue(result.contains("Средний балл не определен."));
     }

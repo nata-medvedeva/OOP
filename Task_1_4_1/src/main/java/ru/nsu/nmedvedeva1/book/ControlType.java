@@ -4,12 +4,12 @@ package ru.nsu.nmedvedeva1.book;
  * Набор констант для типов контроля.
  * */
 public enum ControlType {
-    Экзамен,
-    Дифференцированный_зачет,
-    Зачет,
-    Задание,
-    Коллоквиум,
-    Квалификационная_работа,
-    Защита_отчета_по_практике,
-    Защита_вкр
+    Exam,
+    Graded_credit,
+    Ungraded_credit,
+    Assignment,
+    Colloquium,
+    Qualifying_work,
+    Internship_report_defense,
+    Final_qualification_work_defense
 }

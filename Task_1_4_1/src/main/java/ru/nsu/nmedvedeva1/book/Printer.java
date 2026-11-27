@@ -12,7 +12,9 @@ public class Printer {
      * @param book зачетная книга
      * */
     public void printBook(RecordBook book) {
-        if (book.possibilityToMove()) {
+        if (book.getFormOfStudying() == StudyForm.Budget_funded) {
+            System.out.println("Вы уже обучаетесь на бюджете.");
+        } else if (book.possibilityToMove()) {
             System.out.println("Вы можете перевестись на бесплатную форму обучения.");
         } else {
             System.out.println("Вы не можете перевестись на бесплатную форму обучения.");

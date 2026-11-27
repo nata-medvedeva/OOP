@@ -15,16 +15,27 @@ public class RecordBook {
     List<Grade> grades = new ArrayList<>();
     int semester;
     StudyForm formOfStudying;
+    private final int totalGrades;
 
     /**
      * Конструктор зачетной книги.
      *
      * @param semester текущий семестр обучения
      * @param formOfStudying форма обучения студента
-     * */
-    public RecordBook(int semester, StudyForm formOfStudying) {
+     * @param totalGrades общее количество итоговых числовых оценок по учебному плану
+     */
+    public RecordBook(int semester, StudyForm formOfStudying, int totalGrades) {
+        if (totalGrades <= 0) {
+            throw new IllegalArgumentException("Количество итоговых оценок должно быть положительным.");
+        }
+
+        if (semester <= 0) {
+            throw new IllegalArgumentException("Семестр должен быть положительным числом.");
+        }
+
         this.semester = semester;
         this.formOfStudying = formOfStudying;
+        this.totalGrades = totalGrades;
     }
 
     /**
@@ -46,13 +57,12 @@ public class RecordBook {
      */
     public boolean possibilityToMove() {
 
-        if (formOfStudying == StudyForm.Бюджетная) {
-            System.out.println("Вы уже обучаетесь на бюджете.");
+        if (formOfStudying == StudyForm.Budget_funded) {
             return false;
         }
 
         List<Integer> lastTwoSemesters = grades.stream()
-                .filter(g -> g.controlType == ControlType.Экзамен)
+                .filter(g -> g.controlType == ControlType.Exam)
                 .map(Grade::getSemester)
                 .distinct()
                 .sorted()
@@ -67,7 +77,7 @@ public class RecordBook {
                 : lastTwoSemesters.get(0);
 
         return grades.stream()
-                .filter(g -> g.controlType == ControlType.Экзамен && g.semester >= fromSemester)
+                .filter(g -> g.controlType == ControlType.Exam && g.semester >= fromSemester)
                 .noneMatch(g -> g.value == 3 || g.value == 2);
     }
 
@@ -78,24 +88,33 @@ public class RecordBook {
      * @return true, если текущие оценки удовлетворяют условиям, иначе false
      */
     public boolean possibilityToGetRedDiploma() {
-        boolean flag1 = grades.stream().filter(g -> g.controlType == ControlType.Экзамен)
-                .noneMatch(g -> g.getValue() == 2 || g.getValue() == 3)
-                && grades.stream()
-                .filter(g -> g.controlType == ControlType.Дифференцированный_зачет)
-                .noneMatch(g -> g.getValue() == 2 || g.getValue() == 3);
-        boolean flag2 = grades.stream()
-                .filter(g -> g.controlType == ControlType.Квалификационная_работа)
+        List<Grade> finalGrades = grades.stream()
+                .filter(g -> g.controlType == ControlType.Exam
+                        || g.controlType == ControlType.Graded_credit
+                        || g.controlType == ControlType.Internship_report_defense
+                        || g.controlType == ControlType.Final_qualification_work_defense)
+                .toList();
+
+        boolean noThrees = finalGrades.stream().noneMatch(g -> g.getValue() == 2 || g.getValue() == 3);
+
+        boolean excQualifyingWork = grades.stream()
+                .filter(g -> g.controlType == ControlType.Qualifying_work
+                || g.controlType == ControlType.Final_qualification_work_defense)
                 .allMatch(g -> g.getValue() == 5);
 
-        OptionalDouble avgForExams = grades.stream()
-                .filter(g -> g.controlType == ControlType.Экзамен
-                        || g.controlType == ControlType.Дифференцированный_зачет
-                        || g.controlType == ControlType.Защита_отчета_по_практике
-                        || g.controlType == ControlType.Защита_вкр)
-                .mapToInt(Grade::getValue)
-                .average();
-        boolean flag3 = avgForExams.isPresent() && (avgForExams.getAsDouble() >= 4.75);
-        return flag1 && flag2 && flag3;
+        long excellentGrades = finalGrades.stream()
+                .filter(g -> g.getValue() == 5)
+                .count();
+
+        int futureGrades = totalGrades - finalGrades.size();
+
+        if (futureGrades < 0) {
+            return false;
+        }
+        double maxPercent = (double) (excellentGrades + futureGrades)
+                / totalGrades * 100;
+
+        return maxPercent >= 75 && excQualifyingWork && noThrees;
     }
 
     /**
