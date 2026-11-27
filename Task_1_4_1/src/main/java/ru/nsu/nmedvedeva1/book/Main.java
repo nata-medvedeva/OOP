@@ -15,13 +15,13 @@ public class Main {
 
         System.out.println("Введите форму обучения (1 - Бюджетная, 2 - Платная): ");
         int t = scanner.nextInt();
-        StudyForm form = (t == 1) ? StudyForm.Budget_funded : StudyForm.Contract_based;
+        final StudyForm form = (t == 1) ? StudyForm.Budget_funded : StudyForm.Contract_based;
 
         System.out.println("Введите текущий семестр: ");
-        int semester = scanner.nextInt();
+        final int semester = scanner.nextInt();
 
         System.out.println("Введите общее количество итоговых оценок по учебному плану: ");
-        int totalGrades = scanner.nextInt();
+        final int totalGrades = scanner.nextInt();
         scanner.nextLine();
 
         RecordBook book = new RecordBook(semester, form, totalGrades);

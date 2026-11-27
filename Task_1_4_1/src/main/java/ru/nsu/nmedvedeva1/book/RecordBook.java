@@ -12,9 +12,9 @@ import java.util.stream.Collectors;
  * получения красного диплома и повышенной стипендии.
  */
 public class RecordBook {
-    List<Grade> grades = new ArrayList<>();
-    int semester;
-    StudyForm formOfStudying;
+    private final List<Grade> grades = new ArrayList<>();
+    private final int semester;
+    private final StudyForm formOfStudying;
     private final int totalGrades;
 
     /**
@@ -26,7 +26,8 @@ public class RecordBook {
      */
     public RecordBook(int semester, StudyForm formOfStudying, int totalGrades) {
         if (totalGrades <= 0) {
-            throw new IllegalArgumentException("Количество итоговых оценок должно быть положительным.");
+            throw new IllegalArgumentException("Количество итоговых оценок " +
+                    "должно быть положительным.");
         }
 
         if (semester <= 0) {
@@ -95,7 +96,8 @@ public class RecordBook {
                         || g.controlType == ControlType.Final_qualification_work_defense)
                 .toList();
 
-        boolean noThrees = finalGrades.stream().noneMatch(g -> g.getValue() == 2 || g.getValue() == 3);
+        boolean noThrees = finalGrades.stream().noneMatch(g -> g.getValue() == 2
+                || g.getValue() == 3);
 
         boolean excQualifyingWork = grades.stream()
                 .filter(g -> g.controlType == ControlType.Qualifying_work
